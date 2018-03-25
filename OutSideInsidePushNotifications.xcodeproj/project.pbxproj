@@ -22,6 +22,7 @@
 		7CAC19542067F21300B38ACE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CAC19572067F21300B38ACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CAC19592067F21300B38ACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95E2B71A2068493900EA2CD2 /* OutSideInsidePushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OutSideInsidePushNotifications.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +55,7 @@
 		7CAC194C2067F21300B38ACE /* OutSideInsidePushNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				95E2B71A2068493900EA2CD2 /* OutSideInsidePushNotifications.entitlements */,
 				7CAC194D2067F21300B38ACE /* AppDelegate.swift */,
 				7CAC194F2067F21300B38ACE /* ViewController.swift */,
 				7CAC19512067F21300B38ACE /* Main.storyboard */,
@@ -97,6 +99,11 @@
 					7CAC19492067F21300B38ACE = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -274,11 +281,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OutSideInsidePushNotifications/OutSideInsidePushNotifications.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33NC89QWWR;
 				INFOPLIST_FILE = OutSideInsidePushNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = iOSLab.OutSideInsidePushNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blvvvck.PushNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -289,11 +297,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OutSideInsidePushNotifications/OutSideInsidePushNotifications.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33NC89QWWR;
 				INFOPLIST_FILE = OutSideInsidePushNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = iOSLab.OutSideInsidePushNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blvvvck.PushNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
