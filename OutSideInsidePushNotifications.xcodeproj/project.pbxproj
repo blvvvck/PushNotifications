@@ -438,7 +438,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blvvvck.PushNotification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a135e93a-15fe-4f7f-812e-0d6053c8c078";
+				PROVISIONING_PROFILE = "726a5f86-355f-4d5b-aed7-5f90b7fb146e";
 				PROVISIONING_PROFILE_SPECIFIER = PushNotificationHW;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
