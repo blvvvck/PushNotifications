@@ -21,12 +21,6 @@ class NotificationsPresenterImplementation: NotificationsPresenter {
         return notifications.count
     }
     
-//    init() {
-//        //view = NotificationsViewController()
-//        //dbManager = DBManagerImplemetation()
-//        //notificationsDataSource = NotificationListDataSource()
-//    }
-    
     func viewDidLoad() {
         notifications = dbManager.getDataFromDB()
         notificationsDataSource.notificationsResults = notifications

@@ -23,6 +23,13 @@
 		950D6648206C66E7007E99C2 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D6646206C66E7007E99C2 /* NotificationTableViewCell.swift */; };
 		950D664B206C66F2007E99C2 /* NotificationListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D6649206C66F2007E99C2 /* NotificationListDataSource.swift */; };
 		950D664C206C66F2007E99C2 /* NotificationsInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D664A206C66F2007E99C2 /* NotificationsInitializer.swift */; };
+		950D6656206D1171007E99C2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B7212069122600EA2CD2 /* NotificationService.swift */; };
+		950D6657206D123E007E99C2 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D6642206C66E1007E99C2 /* NotificationModel.swift */; };
+		950D6658206D1252007E99C2 /* DBManagerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D663D206C66DC007E99C2 /* DBManagerImplementation.swift */; };
+		950D6659206D126B007E99C2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D663E206C66DC007E99C2 /* DBManager.swift */; };
+		950D665B206D1F3D007E99C2 /* RemoteNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D665A206D1F3D007E99C2 /* RemoteNotificationManager.swift */; };
+		950D665D206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D665C206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift */; };
+		950D6661206D5B90007E99C2 /* ParseNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D6660206D5B90007E99C2 /* ParseNotificationModel.swift */; };
 		95E2B7222069122600EA2CD2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B7212069122600EA2CD2 /* NotificationService.swift */; };
 		95E2B7262069122600EA2CD2 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 95E2B71F2069122600EA2CD2 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		95E2B75320697EE000EA2CD2 /* LastNotificationImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B75220697EE000EA2CD2 /* LastNotificationImageViewController.swift */; };
@@ -82,6 +89,9 @@
 		950D664A206C66F2007E99C2 /* NotificationsInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsInitializer.swift; sourceTree = "<group>"; };
 		950D664F206C67CE007E99C2 /* Pods_OutSideInsidePushNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_OutSideInsidePushNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		950D6651206C67DD007E99C2 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		950D665A206D1F3D007E99C2 /* RemoteNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationManager.swift; sourceTree = "<group>"; };
+		950D665C206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationManagerImplementation.swift; sourceTree = "<group>"; };
+		950D6660206D5B90007E99C2 /* ParseNotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseNotificationModel.swift; sourceTree = "<group>"; };
 		95E2B71A2068493900EA2CD2 /* OutSideInsidePushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OutSideInsidePushNotifications.entitlements; sourceTree = "<group>"; };
 		95E2B71F2069122600EA2CD2 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E2B7212069122600EA2CD2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -198,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				950D6642206C66E1007E99C2 /* NotificationModel.swift */,
+				950D6660206D5B90007E99C2 /* ParseNotificationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +230,23 @@
 				1AE07038A2CB3A5929E01586 /* Pods_NotificationService.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		950D665E206D5B17007E99C2 /* RemoteNotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				950D665A206D1F3D007E99C2 /* RemoteNotificationManager.swift */,
+				950D665C206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift */,
+			);
+			path = RemoteNotificationManager;
+			sourceTree = "<group>";
+		};
+		950D665F206D5B29007E99C2 /* NotificationDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				950D6649206C66F2007E99C2 /* NotificationListDataSource.swift */,
+			);
+			path = NotificationDataSource;
 			sourceTree = "<group>";
 		};
 		95E2B7202069122600EA2CD2 /* NotificationService */ = {
@@ -252,7 +280,8 @@
 		95E2B75120697EB800EA2CD2 /* NotificationsScene */ = {
 			isa = PBXGroup;
 			children = (
-				950D6649206C66F2007E99C2 /* NotificationListDataSource.swift */,
+				950D665F206D5B29007E99C2 /* NotificationDataSource */,
+				950D665E206D5B17007E99C2 /* RemoteNotificationManager */,
 				950D6644206C66E7007E99C2 /* CustomTableViewCells */,
 				950D6641206C66E1007E99C2 /* Models */,
 				950D663C206C66DC007E99C2 /* DBManager */,
@@ -482,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950D665B206D1F3D007E99C2 /* RemoteNotificationManager.swift in Sources */,
 				95E2B75E20697F5A00EA2CD2 /* DetailNotificationPresenter.swift in Sources */,
 				95E2B75520697EF000EA2CD2 /* LastNotificationImagePresenter.swift in Sources */,
 				7CAC194E2067F21300B38ACE /* AppDelegate.swift in Sources */,
@@ -490,9 +520,12 @@
 				950D663B206C66D6007E99C2 /* NotificationsViewController.swift in Sources */,
 				950D663A206C66D6007E99C2 /* NotificationsView.swift in Sources */,
 				950D6636206C66D0007E99C2 /* NotificationsPresenterImplementation.swift in Sources */,
+				950D665D206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift in Sources */,
 				95E2B75C20697F4E00EA2CD2 /* DetailNotificationViewController.swift in Sources */,
+				950D6656206D1171007E99C2 /* NotificationService.swift in Sources */,
 				95E2B75320697EE000EA2CD2 /* LastNotificationImageViewController.swift in Sources */,
 				950D6635206C66D0007E99C2 /* NotificationsPresenter.swift in Sources */,
+				950D6661206D5B90007E99C2 /* ParseNotificationModel.swift in Sources */,
 				950D664B206C66F2007E99C2 /* NotificationListDataSource.swift in Sources */,
 				950D663F206C66DC007E99C2 /* DBManagerImplementation.swift in Sources */,
 				950D664C206C66F2007E99C2 /* NotificationsInitializer.swift in Sources */,
@@ -505,7 +538,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950D6657206D123E007E99C2 /* NotificationModel.swift in Sources */,
+				950D6658206D1252007E99C2 /* DBManagerImplementation.swift in Sources */,
 				95E2B7222069122600EA2CD2 /* NotificationService.swift in Sources */,
+				950D6659206D126B007E99C2 /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

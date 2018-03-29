@@ -15,12 +15,12 @@ class NotificationConfigurator {
         let presenter = NotificationsPresenterImplementation()
         let dbManager = DBManagerImplemetation()
         let dataSource = NotificationListDataSource()
-        
+                
         viewController.presenter = presenter
         viewController.dataSource = dataSource
         
         presenter.view = viewController
         presenter.dbManager = dbManager
-        presenter.notificationsDataSource = dataSource
+        presenter.notificationsDataSource = dataSource        
     }
 }

@@ -10,9 +10,6 @@ import Foundation
 
 protocol NotificationsPresenter {
     
-    /// Number of notifications
-    var numberOfNotifications: Int { get }
-    
     /// Get data from DB and give it to NotificationLisDataSource
     func viewDidLoad()
 }

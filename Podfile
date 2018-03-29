@@ -6,6 +6,8 @@ target 'NotificationService' do
   use_frameworks!
 
   # Pods for NotificationService
+	pod 'SDWebImage/WebP'
+	pod 'RealmSwift'
 
 end
 

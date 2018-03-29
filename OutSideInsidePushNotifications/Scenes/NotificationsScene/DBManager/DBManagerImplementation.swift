@@ -17,10 +17,6 @@ class DBManagerImplemetation: DBManager {
     }
     
     func getDataFromDB() -> Results<NotificationModel> {
-//        let results = Array(database.objects(NotificationModel.self))
-//        var notificatonModel:[NotificationModel] = []
-//        notificatonModel = results.map({$0 as NotificationModel})
-//        return notificatonModel
         let results: Results<NotificationModel> = database.objects(NotificationModel.self)
         return results
     }

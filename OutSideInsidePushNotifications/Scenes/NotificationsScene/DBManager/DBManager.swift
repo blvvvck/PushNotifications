@@ -13,8 +13,22 @@ protocol DBManager {
     
     var database:Realm { set get }
    
+    
+    /// Get all notifications from db
+    ///
+    /// - Returns: Results (Realm "array")
     func getDataFromDB() -> Results<NotificationModel>
+    
+    /// Save into db
+    ///
+    /// - Parameter object: notification model we want to add
     func addData(object: NotificationModel)
+    
+    /// Remove all objects from db
     func deleteAllFromDatabase()
+    
+    /// Delete object from db
+    ///
+    /// - Parameter object: notification model we want to delete
     func deleteFromDb(object: NotificationModel)
 }

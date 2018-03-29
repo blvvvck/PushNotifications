@@ -15,10 +15,21 @@ class NotificationsViewController: UIViewController, NotificationsView {
     let notificationCellIdentifier = "notificationCell"
     var presenter: NotificationsPresenter!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //presenter = NotificationsPresenterImplementation()
         presenter.viewDidLoad()
+        self.tableView.addSubview(self.refreshControl)
         
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
@@ -33,6 +44,11 @@ class NotificationsViewController: UIViewController, NotificationsView {
     func refreshNotificationsView() {
         tableView.reloadData()
     }
-
-
+    
+    //MARK -
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        presenter.viewDidLoad()
+        refreshControl.endRefreshing()
+    }
 }

@@ -12,22 +12,13 @@ import RealmSwift
 
 class NotificationListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate  {
     
-    //var dbManager: DBManager!
     let notificationCellIdentifier = "notificationCell"
     var notificationsResults: Results<NotificationModel>? = nil
     
     override init() {
         super.init()
-        //dbManager = DBManagerImplemetation()
-//        let test2 = NotificationModel(value: ["imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVHnduiEy1vr-JySv1ekN_lSccJ0SdVQqYR0ZDYAxstNW_MDej", "title": "notification title", "body": "notificationBody"])
-//        let test3 = NotificationModel(value: ["imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVHnduiEy1vr-JySv1ekN_lSccJ0SdVQqYR0ZDYAxstNW_MDej", "title": "notification title2", "body": "notificationBody2"])
-//        let test4 = NotificationModel(value: ["imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVHnduiEy1vr-JySv1ekN_lSccJ0SdVQqYR0ZDYAxstNW_MDej", "title": "notification title3", "body": "notificationBody3"])
-//        dbManager.addData(object: test3)
-//        dbManager.addData(object: test4)
-//        models = dbManager.getDataFromDB()
     }
-    
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let notificationsCount = notificationsResults?.count else { return 0 }
         return notificationsCount
