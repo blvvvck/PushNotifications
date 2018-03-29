@@ -21,7 +21,6 @@
 		95E2B75C20697F4E00EA2CD2 /* DetailNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B75B20697F4E00EA2CD2 /* DetailNotificationViewController.swift */; };
 		95E2B75E20697F5A00EA2CD2 /* DetailNotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B75D20697F5A00EA2CD2 /* DetailNotificationPresenter.swift */; };
 		C3034B20206C37B9000702F3 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3034B1F206C37B9000702F3 /* ImageModel.swift */; };
-		C3034B22206D30D5000702F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3034B21206D30D5000702F3 /* ViewController.swift */; };
 		C3034B24206D3BBF000702F3 /* LastNotificationImagePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3034B23206D3BBF000702F3 /* LastNotificationImagePresenterProtocol.swift */; };
 		C3034B26206D3BF7000702F3 /* LastNotificationImageViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3034B25206D3BF7000702F3 /* LastNotificationImageViewControllerProtocol.swift */; };
 		C3034B2B206D3C5E000702F3 /* LastNotificationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3034B2A206D3C5E000702F3 /* LastNotificationConfigurator.swift */; };
@@ -83,7 +82,6 @@
 		95E2B75B20697F4E00EA2CD2 /* DetailNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationViewController.swift; sourceTree = "<group>"; };
 		95E2B75D20697F5A00EA2CD2 /* DetailNotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationPresenter.swift; sourceTree = "<group>"; };
 		C3034B1F206C37B9000702F3 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
-		C3034B21206D30D5000702F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C3034B23206D3BBF000702F3 /* LastNotificationImagePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNotificationImagePresenterProtocol.swift; sourceTree = "<group>"; };
 		C3034B25206D3BF7000702F3 /* LastNotificationImageViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNotificationImageViewControllerProtocol.swift; sourceTree = "<group>"; };
 		C3034B2A206D3C5E000702F3 /* LastNotificationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNotificationConfigurator.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 				C3034B2E206D3F9A000702F3 /* Model */,
 				95E2B74F20697E9600EA2CD2 /* Scenes */,
 				C3101E1D206C2367004C38A9 /* Common */,
-				C3034B21206D30D5000702F3 /* ViewController.swift */,
 				C3034B3A206D48A9000702F3 /* OutSideInsidePushNotifications-Bridging-Header.h */,
 			);
 			path = OutSideInsidePushNotifications;
@@ -536,7 +533,6 @@
 				C3101E1C206C2248004C38A9 /* DetailNotificationViewControllerProtocol.swift in Sources */,
 				C3034B20206C37B9000702F3 /* ImageModel.swift in Sources */,
 				C3034B26206D3BF7000702F3 /* LastNotificationImageViewControllerProtocol.swift in Sources */,
-				C3034B22206D30D5000702F3 /* ViewController.swift in Sources */,
 				95E2B75320697EE000EA2CD2 /* LastNotificationImageViewController.swift in Sources */,
 				95E2B75920697F0E00EA2CD2 /* NotificationsPresenter.swift in Sources */,
 				95E2B75720697F0300EA2CD2 /* NotificationsViewController.swift in Sources */,
