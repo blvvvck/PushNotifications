@@ -13,7 +13,7 @@ protocol LastNotificationImagePresenterProtocol {
     /// Function for updating last notification image
     ///
     /// - Parameter model: struct NotificationModel
-    func updateImage(with model: NotificationModel)
+    func updateImage(with model: NotificationModel2)
     
     /// Function for set up LastNotificationViewController
     func viewIsReady()

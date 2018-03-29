@@ -9,7 +9,7 @@
 import UIKit
 
 class LastNotificationImageViewController: UIViewController, LastNotificationImageViewControllerProtocol {
-
+    
     @IBOutlet weak var lastNotificationImage: UIImageView!
     
     var presenter: LastNotificationImagePresenterProtocol!

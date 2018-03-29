@@ -13,6 +13,6 @@ protocol DetailNotificationPresenterProtocol {
     /// Function for prepare detail notification view
     ///
     /// - Parameter model: struct NotificationModel
-    func prepareView(with model: NotificationModel)
+    func prepareView(with model: NotificationModel2)
     
 }

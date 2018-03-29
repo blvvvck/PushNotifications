@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NotificationModel {
+struct NotificationModel2 {
     
     var header: String
     var imageURL: URL?

@@ -15,7 +15,7 @@ class DetailNotificationPresenter: DetailNotificationPresenterProtocol, ImageMan
     
     //MARK: - DetailNotificationPresenterProtocol
     
-    func prepareView(with model: NotificationModel) {
+    func prepareView(with model: NotificationModel2) {
         
         view.setNotificationHeader(text: model.header)
         view.setNotificationMessage(text: model.message)

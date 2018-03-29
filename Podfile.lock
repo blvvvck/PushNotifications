@@ -1,14 +1,48 @@
 PODS:
-  - SDWebImage (4.3.2):
-    - SDWebImage/Core (= 4.3.2)
+  - libwebp (0.6.0):
+    - libwebp/core (= 0.6.0)
+    - libwebp/dec (= 0.6.0)
+    - libwebp/demux (= 0.6.0)
+    - libwebp/dsp (= 0.6.0)
+    - libwebp/enc (= 0.6.0)
+    - libwebp/mux (= 0.6.0)
+    - libwebp/utils (= 0.6.0)
+    - libwebp/webp (= 0.6.0)
+  - libwebp/core (0.6.0):
+    - libwebp/webp
+  - libwebp/dec (0.6.0):
+    - libwebp/core
+  - libwebp/demux (0.6.0):
+    - libwebp/core
+  - libwebp/dsp (0.6.0):
+    - libwebp/core
+  - libwebp/enc (0.6.0):
+    - libwebp/core
+  - libwebp/mux (0.6.0):
+    - libwebp/core
+  - libwebp/utils (0.6.0):
+    - libwebp/core
+  - libwebp/webp (0.6.0)
+  - Realm (3.1.1):
+    - Realm/Headers (= 3.1.1)
+  - Realm/Headers (3.1.1)
+  - RealmSwift (3.1.1):
+    - Realm (= 3.1.1)
   - SDWebImage/Core (4.3.2)
+  - SDWebImage/WebP (4.3.2):
+    - libwebp (~> 0.5)
+    - SDWebImage/Core
 
 DEPENDENCIES:
-  - SDWebImage (~> 4.0)
+  - RealmSwift
+  - SDWebImage/WebP
 
 SPEC CHECKSUMS:
+  libwebp: 1d5a07c2eb97f9c31bd5f154bb82efc0ea67c6a2
+  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
+  RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
   SDWebImage: 29bd3c0bc1f01e5eb59720847c64ad4c4ca1af5d
 
-PODFILE CHECKSUM: bfe6a2628a6934c3cd32ab087a83e2fee63d5256
+PODFILE CHECKSUM: b29f8ff1d3d9d2ff05984b3c02223b2d5e4d5059
 
 COCOAPODS: 1.4.0
