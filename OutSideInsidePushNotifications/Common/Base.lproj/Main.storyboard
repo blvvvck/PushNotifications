@@ -10,92 +10,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Notifications-->
+        <!--View Controller-->
         <scene sceneID="m36-Pn-4Sy">
             <objects>
                 <viewController storyboardIdentifier="NotificationsViewController" id="s2x-Qt-rUQ" customClass="NotificationsViewController" customModule="OutSideInsidePushNotifications" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qBQ-n1-DZz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CD2-4x-0au">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CD2-4x-0au" firstAttribute="leading" secondItem="wi1-DE-JXa" secondAttribute="leading" id="Sy0-LX-LfO"/>
+                            <constraint firstItem="CD2-4x-0au" firstAttribute="top" secondItem="wi1-DE-JXa" secondAttribute="top" id="bj7-gu-Z0H"/>
+                            <constraint firstItem="CD2-4x-0au" firstAttribute="trailing" secondItem="wi1-DE-JXa" secondAttribute="trailing" id="fbL-0M-7iP"/>
+                            <constraint firstItem="CD2-4x-0au" firstAttribute="bottom" secondItem="wi1-DE-JXa" secondAttribute="bottom" id="jAf-nI-sPv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wi1-DE-JXa"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notifications" id="yZf-Es-s5k"/>
+                    <connections>
+                        <outlet property="tableView" destination="CD2-4x-0au" id="SzN-QZ-i1C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zn7-Q4-FfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="MRa-7a-daJ" customClass="NotificationsInitializer" customModule="OutSideInsidePushNotifications" customModuleProvider="target">
+                    <connections>
+                        <outlet property="viewController" destination="s2x-Qt-rUQ" id="Eb5-by-e4p"/>
+                    </connections>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="745" y="471"/>
+            <point key="canvasLocation" x="744.79999999999995" y="470.91454272863569"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Notification View Controller-->
         <scene sceneID="guk-yn-oeV">
             <objects>
                 <viewController storyboardIdentifier="DetailNotificationViewController" id="qvK-BI-W7d" customClass="DetailNotificationViewController" customModule="OutSideInsidePushNotifications" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oiV-Qg-pPl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJh-Bq-R2l">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvn-5s-T21">
-                                        <rect key="frame" x="0.0" y="20" width="375" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MKc-18-erG">
-                                        <rect key="frame" x="20" y="69" width="335" height="300"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="6qu-AQ-sNg"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fu-LB-iJf">
-                                        <rect key="frame" x="20" y="389" width="335" height="742"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="hvn-5s-T21" firstAttribute="leading" secondItem="yJh-Bq-R2l" secondAttribute="leading" id="JVu-mz-UN1"/>
-                                    <constraint firstItem="MKc-18-erG" firstAttribute="top" secondItem="hvn-5s-T21" secondAttribute="bottom" constant="20" id="Jex-Nj-CuK"/>
-                                    <constraint firstItem="hvn-5s-T21" firstAttribute="width" secondItem="yJh-Bq-R2l" secondAttribute="width" id="UzP-MW-0SJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="8fu-LB-iJf" secondAttribute="bottom" constant="10" id="XUS-Li-9cf"/>
-                                    <constraint firstItem="8fu-LB-iJf" firstAttribute="top" secondItem="MKc-18-erG" secondAttribute="bottom" constant="20" id="adW-L4-bJQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="hvn-5s-T21" secondAttribute="trailing" id="gyP-Jj-3Zx"/>
-                                    <constraint firstItem="8fu-LB-iJf" firstAttribute="leading" secondItem="yJh-Bq-R2l" secondAttribute="leading" constant="20" id="kUW-OB-BdJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="MKc-18-erG" secondAttribute="trailing" constant="20" id="oSH-e4-hdq"/>
-                                    <constraint firstAttribute="trailing" secondItem="8fu-LB-iJf" secondAttribute="trailing" constant="20" id="qCi-71-eOg"/>
-                                    <constraint firstItem="hvn-5s-T21" firstAttribute="top" secondItem="yJh-Bq-R2l" secondAttribute="top" constant="20" id="vY9-xJ-SjO"/>
-                                    <constraint firstItem="MKc-18-erG" firstAttribute="leading" secondItem="yJh-Bq-R2l" secondAttribute="leading" constant="20" id="wqT-Fg-Ub9"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="yJh-Bq-R2l" firstAttribute="top" secondItem="XF8-5I-wFh" secondAttribute="top" id="9al-9a-OqS"/>
-                            <constraint firstItem="XF8-5I-wFh" firstAttribute="trailing" secondItem="yJh-Bq-R2l" secondAttribute="trailing" id="AEN-Qs-6YH"/>
-                            <constraint firstItem="yJh-Bq-R2l" firstAttribute="leading" secondItem="XF8-5I-wFh" secondAttribute="leading" id="fKq-56-MTf"/>
-                            <constraint firstItem="XF8-5I-wFh" firstAttribute="bottom" secondItem="yJh-Bq-R2l" secondAttribute="bottom" id="vUl-pn-yRs"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XF8-5I-wFh"/>
                     </view>
-                    <connections>
-                        <outlet property="imageHeightConstraint" destination="6qu-AQ-sNg" id="AkY-0r-oW0"/>
-                        <outlet property="notificationHeader" destination="hvn-5s-T21" id="7tI-sx-Kc8"/>
-                        <outlet property="notificationImage" destination="MKc-18-erG" id="Es4-4L-0pa"/>
-                        <outlet property="notificationMessage" destination="8fu-LB-iJf" id="p4F-ca-4u7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mu0-s5-BVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="lYh-Sf-IvF" customClass="DetailNotificationInitializer" customModule="OutSideInsidePushNotifications" customModuleProvider="target">
-                    <connections>
-                        <outlet property="viewController" destination="qvK-BI-W7d" id="MWv-BA-7WW"/>
-                    </connections>
-                </customObject>
             </objects>
-            <point key="canvasLocation" x="1560.8" y="480.80959520239884"/>
+            <point key="canvasLocation" x="1562" y="481"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dd7-UW-MCr">

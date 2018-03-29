@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol NotificationsPresenter {
+    
+    /// Get data from DB and give it to NotificationListDataSource
+    func viewDidLoad()
+}
