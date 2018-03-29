@@ -17,8 +17,8 @@ protocol DetailNotificationViewControllerProtocol {
     
     /// Setter for notification image
     ///
-    /// - Parameter image: ImageModel with notification image
-    func setNotificationImage(image: ImageModel)
+    /// - Parameter image: notification image
+    func setNotificationImage(image: UIImage)
     
     /// Setter for notification message
     ///

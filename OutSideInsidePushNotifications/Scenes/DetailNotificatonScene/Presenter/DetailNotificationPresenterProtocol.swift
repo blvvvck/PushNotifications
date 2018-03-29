@@ -12,10 +12,7 @@ protocol DetailNotificationPresenterProtocol {
     
     /// Function for prepare detail notification view
     ///
-    /// - Parameters:
-    ///   - header: notification header
-    ///   - image: notification image
-    ///   - message: notification message
-    func prepareView(header: String, image: ImageModel?, message: String)
+    /// - Parameter model: struct NotificationModel
+    func prepareView(with model: NotificationModel)
     
 }

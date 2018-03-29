@@ -61,19 +61,38 @@
             </objects>
             <point key="canvasLocation" x="1562" y="481"/>
         </scene>
-        <!--Image-->
+        <!--View Controller-->
         <scene sceneID="dd7-UW-MCr">
             <objects>
                 <viewController storyboardIdentifier="LastNotificationImageViewController" id="hLV-1T-Jj6" customClass="LastNotificationImageViewController" customModule="OutSideInsidePushNotifications" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0x9-DE-93R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NAQ-ys-Kfs">
+                                <rect key="frame" x="20" y="80" width="335" height="478"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xpO-A5-8PJ" firstAttribute="bottom" secondItem="NAQ-ys-Kfs" secondAttribute="bottom" constant="60" id="4Aa-Y2-INX"/>
+                            <constraint firstItem="NAQ-ys-Kfs" firstAttribute="top" secondItem="xpO-A5-8PJ" secondAttribute="top" constant="60" id="BWs-hT-dJX"/>
+                            <constraint firstItem="NAQ-ys-Kfs" firstAttribute="leading" secondItem="xpO-A5-8PJ" secondAttribute="leading" constant="20" id="FWX-tR-cxr"/>
+                            <constraint firstItem="xpO-A5-8PJ" firstAttribute="trailing" secondItem="NAQ-ys-Kfs" secondAttribute="trailing" constant="20" id="OL2-Bs-4tz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xpO-A5-8PJ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Image" id="E8d-Qb-cnE"/>
+                    <connections>
+                        <outlet property="lastNotificationImage" destination="NAQ-ys-Kfs" id="fG8-IQ-zpU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56g-1h-kBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="z8P-Zo-F1h" customClass="LastNotificationInitializer" customModule="OutSideInsidePushNotifications" customModuleProvider="target">
+                    <connections>
+                        <outlet property="viewController" destination="hLV-1T-Jj6" id="Iih-G9-8UY"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="745" y="-272"/>
         </scene>

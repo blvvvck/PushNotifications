@@ -8,22 +8,30 @@
 
 import Foundation
 
-class DetailNotificationPresenter: DetailNotificationPresenterProtocol {
+class DetailNotificationPresenter: DetailNotificationPresenterProtocol, ImageManagerDelegate {
     
     var view: DetailNotificationViewControllerProtocol!
+    var imageManager: ImageManagerProtocol!
     
     //MARK: - DetailNotificationPresenterProtocol
     
-    func prepareView(header: String, image: ImageModel?, message: String) {
+    func prepareView(with model: NotificationModel) {
         
-        view.setNotificationHeader(text: header)
-        view.setNotificationMessage(text: message)
-
-        if let notificationImage = image {
-            view.setNotificationImage(image: notificationImage)
-        } else {
+        view.setNotificationHeader(text: model.header)
+        view.setNotificationMessage(text: model.message)
+        if let imgURL = model.imageURL {
+            imageManager.getImageFromUrl(imageURL: imgURL)
+        }
+        else {
             view.hideNotificationImage()
         }
-        
+                
     }
+    
+    //MARK: - ImageManagerDelegate
+    
+    func getNotificationImage(image: ImageModel) {
+        view.setNotificationImage(image: image.image)
+    }
+    
 }
