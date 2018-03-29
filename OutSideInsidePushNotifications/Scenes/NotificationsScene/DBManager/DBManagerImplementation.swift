@@ -24,7 +24,6 @@ class DBManagerImplemetation: DBManager {
     func addData(object: NotificationModel) {
         try! database.write {
             database.add(object)
-            print("Added new object")
         }
     }
     

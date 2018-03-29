@@ -14,6 +14,7 @@ class NotificationsViewController: UIViewController, NotificationsView {
     var dataSource: NotificationListDataSource!
     let notificationCellIdentifier = "notificationCell"
     var presenter: NotificationsPresenter!
+    let notificationCellNibIdentifier = "NotificationTableViewCell"
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -37,15 +38,15 @@ class NotificationsViewController: UIViewController, NotificationsView {
     }
     
     private func registerCell() {
-        let newsCellNib = UINib(nibName: "NotificationTableViewCell", bundle: nil)
-        self.tableView.register(newsCellNib, forCellReuseIdentifier: notificationCellIdentifier)
+        let notificationCellNib = UINib(nibName: notificationCellIdentifier, bundle: nil)
+        self.tableView.register(notificationCellNib, forCellReuseIdentifier: notificationCellIdentifier)
     }
     
     func refreshNotificationsView() {
         tableView.reloadData()
     }
     
-    //MARK -
+    //MARK: - Refresh Method
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         
         presenter.viewDidLoad()

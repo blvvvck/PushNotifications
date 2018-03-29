@@ -14,6 +14,7 @@ class NotificationListDataSource: NSObject, UITableViewDataSource, UITableViewDe
     
     let notificationCellIdentifier = "notificationCell"
     var notificationsResults: Results<NotificationModel>? = nil
+    let rowHeight: CGFloat = 98
     
     override init() {
         super.init()
@@ -38,7 +39,7 @@ class NotificationListDataSource: NSObject, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 98
+        return rowHeight
     }
     
 }
