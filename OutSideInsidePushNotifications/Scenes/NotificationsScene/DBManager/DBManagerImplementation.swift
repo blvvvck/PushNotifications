@@ -1,0 +1,49 @@
+//
+//  DBManagerImplementation.swift
+//  OutSideInsidePushNotifications
+//
+//  Created by BLVCK on 28/03/2018.
+//  Copyright © 2018 iOSLab. All rights reserved.
+//
+
+import Foundation
+import RealmSwift
+
+class DBManagerImplemetation: DBManager {
+    var database: Realm
+    
+    init() {
+        database = try! Realm()
+    }
+    
+    func getDataFromDB() -> Results<NotificationModel> {
+//        let results = Array(database.objects(NotificationModel.self))
+//        var notificatonModel:[NotificationModel] = []
+//        notificatonModel = results.map({$0 as NotificationModel})
+//        return notificatonModel
+        let results: Results<NotificationModel> = database.objects(NotificationModel.self)
+        return results
+    }
+    
+    func addData(object: NotificationModel) {
+        try! database.write {
+            database.add(object)
+            print("Added new object")
+        }
+    }
+    
+    func deleteAllFromDatabase() {
+        try!   database.write {
+            database.deleteAll()
+        }
+    }
+    
+    func deleteFromDb(object: NotificationModel) {
+        try! database.write {
+            database.delete(object)
+        }
+    }
+    
+    
+    
+}
