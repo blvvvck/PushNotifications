@@ -7,14 +7,17 @@
 //
 
 import UserNotifications
+import RealmSwift
+import Realm
+import SDWebImage
 
 class NotificationService: UNNotificationServiceExtension {
 
+    
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?
 
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
-        print("masuk did receive")
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
@@ -30,7 +33,7 @@ class NotificationService: UNNotificationServiceExtension {
             return failEarly()
         }
         
-        guard let attachmentURL = apnsData["attachment-url"] as? String else {
+        guard let attachmentURL = apnsData["attachmentUrl"] as? String else {
             return failEarly()
         }
         
