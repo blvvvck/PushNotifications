@@ -157,13 +157,8 @@
 		7CAC194C2067F21300B38ACE /* OutSideInsidePushNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				950D6662206D77F0007E99C2 /* Common */,
 				95E2B74F20697E9600EA2CD2 /* Scenes */,
-				95E2B71A2068493900EA2CD2 /* OutSideInsidePushNotifications.entitlements */,
-				7CAC194D2067F21300B38ACE /* AppDelegate.swift */,
-				7CAC19512067F21300B38ACE /* Main.storyboard */,
-				7CAC19542067F21300B38ACE /* Assets.xcassets */,
-				7CAC19562067F21300B38ACE /* LaunchScreen.storyboard */,
-				7CAC19592067F21300B38ACE /* Info.plist */,
 			);
 			path = OutSideInsidePushNotifications;
 			sourceTree = "<group>";
@@ -247,6 +242,19 @@
 				950D6649206C66F2007E99C2 /* NotificationListDataSource.swift */,
 			);
 			path = NotificationDataSource;
+			sourceTree = "<group>";
+		};
+		950D6662206D77F0007E99C2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				95E2B71A2068493900EA2CD2 /* OutSideInsidePushNotifications.entitlements */,
+				7CAC194D2067F21300B38ACE /* AppDelegate.swift */,
+				7CAC19512067F21300B38ACE /* Main.storyboard */,
+				7CAC19542067F21300B38ACE /* Assets.xcassets */,
+				7CAC19562067F21300B38ACE /* LaunchScreen.storyboard */,
+				7CAC19592067F21300B38ACE /* Info.plist */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		95E2B7202069122600EA2CD2 /* NotificationService */ = {
