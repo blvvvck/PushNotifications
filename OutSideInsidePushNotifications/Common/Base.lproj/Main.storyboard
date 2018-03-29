@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qvK-BI-W7d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GY3-TQ-b7S">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -97,21 +97,65 @@
             </objects>
             <point key="canvasLocation" x="1560.8" y="480.80959520239884"/>
         </scene>
-        <!--Image-->
+        <!--View Controller-->
         <scene sceneID="dd7-UW-MCr">
             <objects>
                 <viewController storyboardIdentifier="LastNotificationImageViewController" id="hLV-1T-Jj6" customClass="LastNotificationImageViewController" customModule="OutSideInsidePushNotifications" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0x9-DE-93R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NAQ-ys-Kfs">
+                                <rect key="frame" x="20" y="80" width="335" height="478"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xpO-A5-8PJ" firstAttribute="bottom" secondItem="NAQ-ys-Kfs" secondAttribute="bottom" constant="60" id="4Aa-Y2-INX"/>
+                            <constraint firstItem="NAQ-ys-Kfs" firstAttribute="top" secondItem="xpO-A5-8PJ" secondAttribute="top" constant="60" id="BWs-hT-dJX"/>
+                            <constraint firstItem="NAQ-ys-Kfs" firstAttribute="leading" secondItem="xpO-A5-8PJ" secondAttribute="leading" constant="20" id="FWX-tR-cxr"/>
+                            <constraint firstItem="xpO-A5-8PJ" firstAttribute="trailing" secondItem="NAQ-ys-Kfs" secondAttribute="trailing" constant="20" id="OL2-Bs-4tz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xpO-A5-8PJ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Image" id="E8d-Qb-cnE"/>
+                    <connections>
+                        <outlet property="lastNotificationImage" destination="NAQ-ys-Kfs" id="fG8-IQ-zpU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56g-1h-kBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="z8P-Zo-F1h" customClass="LastNotificationInitializer" customModule="OutSideInsidePushNotifications" customModuleProvider="target">
+                    <connections>
+                        <outlet property="viewController" destination="hLV-1T-Jj6" id="Iih-G9-8UY"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="745" y="-272"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Zm6-t7-L5r">
+            <objects>
+                <viewController id="JLS-VG-LcA" customClass="ViewController" customModule="OutSideInsidePushNotifications" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U54-KH-VSX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlK-sr-f5H">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="buttonCreateNotification:" destination="JLS-VG-LcA" eventType="touchUpInside" id="vWo-cN-eEV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="1v3-zg-dyy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ALT-WT-jzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742" y="-272"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XyV-Pu-n22">

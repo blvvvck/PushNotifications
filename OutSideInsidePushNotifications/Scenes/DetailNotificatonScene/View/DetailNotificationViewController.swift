@@ -30,10 +30,10 @@ class DetailNotificationViewController: UIViewController, DetailNotificationView
         notificationHeader.text = text
     }
     
-    func setNotificationImage(image: ImageModel) {
+    func setNotificationImage(image: UIImage) {
 
         imageHeightConstraint.constant = 300
-        notificationImage.image = image.image
+        notificationImage.image = image
     }
     
     func setNotificationMessage(text: String) {

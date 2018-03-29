@@ -11,6 +11,6 @@ import UIKit
 
 struct ImageModel {
     
-    var image: UIImage 
+    var image: UIImage
     
 }

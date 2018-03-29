@@ -6,6 +6,7 @@ target 'NotificationService' do
   use_frameworks!
 
   # Pods for NotificationService
+  pod 'SDWebImage', '~> 4.0'
 
 end
 
@@ -14,5 +15,6 @@ target 'OutSideInsidePushNotifications' do
   use_frameworks!
 
   # Pods for OutSideInsidePushNotifications
+  pod 'SDWebImage', '~> 4.0'
 
 end
