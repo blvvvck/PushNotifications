@@ -14,6 +14,8 @@ class LastNotificationImageViewController: UIViewController, LastNotificationIma
     
     var presenter: LastNotificationImagePresenterProtocol!
     
+    var placeholderImage = UIImage(named: "Placeholder")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewIsReady()
@@ -26,7 +28,7 @@ class LastNotificationImageViewController: UIViewController, LastNotificationIma
     }
     
     func setPlaceholder() {
-        lastNotificationImage.image = UIImage(named: "Placeholder")
+        lastNotificationImage.image = placeholderImage
     }
     
 }

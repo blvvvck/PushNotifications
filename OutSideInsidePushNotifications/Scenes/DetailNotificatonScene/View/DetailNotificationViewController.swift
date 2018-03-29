@@ -20,6 +20,9 @@ class DetailNotificationViewController: UIViewController, DetailNotificationView
     
     var presenter: DetailNotificationPresenterProtocol!
     
+    var imageHeightConstraintConst: CGFloat = 300
+    var zeroheightConstraintConst: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,7 +35,7 @@ class DetailNotificationViewController: UIViewController, DetailNotificationView
     
     func setNotificationImage(image: UIImage) {
 
-        imageHeightConstraint.constant = 300
+        imageHeightConstraint.constant = imageHeightConstraintConst
         notificationImage.image = image
     }
     
@@ -41,7 +44,7 @@ class DetailNotificationViewController: UIViewController, DetailNotificationView
     }
     
     func hideNotificationImage() {
-        imageHeightConstraint.constant = 0
+        imageHeightConstraint.constant = zeroheightConstraintConst
     }
     
 }
