@@ -34,28 +34,4 @@ class RemoteNotificationManagerImplementation: RemoteNotificationManager {
             print("\(errorMessage.localizedDescription)")
         }
     }
-    
-    func registerForPushNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { [weak self] (isRegistered, error) in
-            
-            guard let strongSelf = self else { return }
-            
-            if let error = error {
-                print("Error: \(error.localizedDescription)")
-            }
-            
-            strongSelf.getPushNotificationsConfigurations()
-        }
-    }
-    
-    func getPushNotificationsConfigurations() {
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            
-            guard settings.authorizationStatus == .authorized else { return }
-            
-            DispatchQueue.main.async {
-                self.registerForPushNotifications()
-            }
-        }
-    }
 }

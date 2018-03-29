@@ -25,7 +25,6 @@
 		950D664B206C66F2007E99C2 /* NotificationListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D6649206C66F2007E99C2 /* NotificationListDataSource.swift */; };
 		950D664C206C66F2007E99C2 /* NotificationsInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D664A206C66F2007E99C2 /* NotificationsInitializer.swift */; };
 		950D6656206D1171007E99C2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B7212069122600EA2CD2 /* NotificationService.swift */; };
-		950D6657206D123E007E99C2 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D6642206C66E1007E99C2 /* NotificationModel.swift */; };
 		950D6658206D1252007E99C2 /* DBManagerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D663D206C66DC007E99C2 /* DBManagerImplementation.swift */; };
 		950D6659206D126B007E99C2 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D663E206C66DC007E99C2 /* DBManager.swift */; };
 		950D665B206D1F3D007E99C2 /* RemoteNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D665A206D1F3D007E99C2 /* RemoteNotificationManager.swift */; };
@@ -107,6 +106,7 @@
 		950D665A206D1F3D007E99C2 /* RemoteNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationManager.swift; sourceTree = "<group>"; };
 		950D665C206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationManagerImplementation.swift; sourceTree = "<group>"; };
 		950D6660206D5B90007E99C2 /* ParseNotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseNotificationModel.swift; sourceTree = "<group>"; };
+		950D6667206D9DFD007E99C2 /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
 		95E2B71A2068493900EA2CD2 /* OutSideInsidePushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OutSideInsidePushNotifications.entitlements; sourceTree = "<group>"; };
 		95E2B71F2069122600EA2CD2 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E2B7212069122600EA2CD2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -236,7 +236,6 @@
 		950D6641206C66E1007E99C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				950D6642206C66E1007E99C2 /* NotificationModel.swift */,
 				950D6660206D5B90007E99C2 /* ParseNotificationModel.swift */,
 			);
 			path = Models;
@@ -281,6 +280,7 @@
 		95E2B7202069122600EA2CD2 /* NotificationService */ = {
 			isa = PBXGroup;
 			children = (
+				950D6667206D9DFD007E99C2 /* NotificationService.entitlements */,
 				95E2B7212069122600EA2CD2 /* NotificationService.swift */,
 				95E2B7232069122600EA2CD2 /* Info.plist */,
 			);
@@ -364,6 +364,7 @@
 			children = (
 				C3034B1F206C37B9000702F3 /* ImageModel.swift */,
 				C3034B3E206D4C42000702F3 /* NotificationModel2.swift */,
+				950D6642206C66E1007E99C2 /* NotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,6 +505,11 @@
 					95E2B71E2069122600EA2CD2 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -685,7 +691,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				950D6657206D123E007E99C2 /* NotificationModel.swift in Sources */,
 				950D6658206D1252007E99C2 /* DBManagerImplementation.swift in Sources */,
 				95E2B7222069122600EA2CD2 /* NotificationService.swift in Sources */,
 				950D6659206D126B007E99C2 /* DBManager.swift in Sources */,
@@ -836,7 +841,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = OutSideInsidePushNotifications/Common/OutSideInsidePushNotifications.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 33NC89QWWR;
 				INFOPLIST_FILE = "$(SRCROOT)/OutSideInsidePushNotifications/Common/Info.plist";
@@ -859,7 +864,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = OutSideInsidePushNotifications/Common/OutSideInsidePushNotifications.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 33NC89QWWR;
 				INFOPLIST_FILE = "$(SRCROOT)/OutSideInsidePushNotifications/Common/Info.plist";
@@ -878,12 +883,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7EB41D2C4A36B63F8ACF9FFF /* Pods-NotificationService.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33NC89QWWR;
 				INFOPLIST_FILE = NotificationService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blvvvck.PushNotification.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -894,12 +902,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 79D4FF199FA4E3362E9BE30D /* Pods-NotificationService.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33NC89QWWR;
 				INFOPLIST_FILE = NotificationService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blvvvck.PushNotification.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

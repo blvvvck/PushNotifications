@@ -16,9 +16,4 @@ protocol RemoteNotificationManager {
     /// - Parameter userInfo: notification's json
     func handleNotification(with userInfo: [AnyHashable : Any])
     
-    /// Register notifications with some options
-    func registerForPushNotifications()
-    
-    /// Check notifications configuration (authorized or not authorized)
-    func getPushNotificationsConfigurations()
 }
