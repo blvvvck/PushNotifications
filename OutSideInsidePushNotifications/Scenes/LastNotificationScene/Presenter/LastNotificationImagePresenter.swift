@@ -9,15 +9,16 @@
 import Foundation
 
 class LastNotificationImagePresenter: LastNotificationImagePresenterProtocol, ImageManagerDelegate {
-    
+
     var view: LastNotificationImageViewControllerProtocol!
     var imageManager: ImageManagerProtocol!
+    var dbManager: DBManager!
     
     //MARK: - LastNotificationImagePresenterProtocol
     
-    func updateImage(with model: NotificationModel2) {
-        if let imgURL = model.imageURL {
-            imageManager.getImageFromUrl(imageURL: imgURL)
+    func updateImage(with model: NotificationModel) {
+        if let imgUrlString = model.imageUrl, let imageUrl = URL(string: imgUrlString) {
+            imageManager.getImageFromUrl(imageURL: imageUrl)
         }
         else {
             view.setPlaceholder()
@@ -28,10 +29,15 @@ class LastNotificationImagePresenter: LastNotificationImagePresenterProtocol, Im
         view.setPlaceholder()
     }
     
+    func getLastNotification() {
+        let notification = dbManager.getLastNotification()
+        guard let currentNotification = notification else { return }
+        updateImage(with: currentNotification)
+    }
+    
     //MARK: - ImageManagerDelegate
     
     func getNotificationImage(image: ImageModel) {
         view.setLastNotificationImage(image: image.image)
     }
-        
 }

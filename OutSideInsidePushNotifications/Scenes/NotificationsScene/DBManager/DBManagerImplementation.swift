@@ -39,6 +39,10 @@ class DBManagerImplemetation: DBManager {
         }
     }
     
-    
+    func getLastNotification() -> NotificationModel? {
+        let results: Results<NotificationModel> = database.objects(NotificationModel.self)
+        guard let lastNotification = results.last else { return nil }
+        return lastNotification
+    }
     
 }

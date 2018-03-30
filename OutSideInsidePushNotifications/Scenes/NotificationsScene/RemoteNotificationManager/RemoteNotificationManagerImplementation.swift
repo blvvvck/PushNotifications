@@ -15,7 +15,6 @@ class RemoteNotificationManagerImplementation: RemoteNotificationManager {
     
     func handleNotification(with userInfo: [AnyHashable : Any]) {
         
-        
         do {
             let data = try JSONSerialization.data(withJSONObject: userInfo, options: .prettyPrinted)
             let parseModel = try JSONDecoder().decode(ParseNotificationModel.self, from: data)
@@ -30,6 +29,7 @@ class RemoteNotificationManagerImplementation: RemoteNotificationManager {
             let model = NotificationModel(value: ["imageUrl": "\(currentImageUrl)", "title": "\(parseModel.aps.alert.title)", "body": "\(currentBody)" ])
             
             dbManager.addData(object: model)
+            
         } catch let errorMessage {
             print("\(errorMessage.localizedDescription)")
         }
