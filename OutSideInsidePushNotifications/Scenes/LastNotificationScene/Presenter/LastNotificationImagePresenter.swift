@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LastNotificationImagePresenter: LastNotificationImagePresenterProtocol, ImageManagerDelegate, RemoteNotificationManagerDelegate {
+class LastNotificationImagePresenter: LastNotificationImagePresenterProtocol, ImageManagerDelegate {
 
     var view: LastNotificationImageViewControllerProtocol!
     var imageManager: ImageManagerProtocol!
@@ -44,11 +44,4 @@ class LastNotificationImagePresenter: LastNotificationImagePresenterProtocol, Im
     func getNotificationImage(image: ImageModel) {
         view.setLastNotificationImage(image: image.image)
     }
-    
-    //MARK: - RemoteNotificationManagerDelegate
-    
-    func getLastNotification(with notification: NotificationModel) {
-        updateImage(with: notification)
-    }
-        
 }
