@@ -31,4 +31,10 @@ protocol DBManager {
     ///
     /// - Parameter object: notification model we want to delete
     func deleteFromDb(object: NotificationModel)
+    
+    
+    /// Get last notification from db
+    ///
+    /// - Returns: notification model
+    func getLastNotification() -> NotificationModel?
 }

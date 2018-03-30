@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //открыто
         if (application.applicationState == .active) {
-            //remoteNotificationManager.handleNotification(with: userInfo)
+            remoteNotificationManager.handleNotification(with: userInfo)
            //говорим локальному
          //бэкграунд
         } else if (application.applicationState == .background) {

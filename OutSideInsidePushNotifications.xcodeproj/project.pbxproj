@@ -30,6 +30,8 @@
 		950D665B206D1F3D007E99C2 /* RemoteNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D665A206D1F3D007E99C2 /* RemoteNotificationManager.swift */; };
 		950D665D206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D665C206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift */; };
 		950D6661206D5B90007E99C2 /* ParseNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D6660206D5B90007E99C2 /* ParseNotificationModel.swift */; };
+		950D6669206EC05C007E99C2 /* RemoteNotificationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D6668206EC05C007E99C2 /* RemoteNotificationManagerDelegate.swift */; };
+		950D666A206EC10C007E99C2 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D6642206C66E1007E99C2 /* NotificationModel.swift */; };
 		95E2B7222069122600EA2CD2 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B7212069122600EA2CD2 /* NotificationService.swift */; };
 		95E2B7262069122600EA2CD2 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 95E2B71F2069122600EA2CD2 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		95E2B75520697EF000EA2CD2 /* LastNotificationImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B75420697EF000EA2CD2 /* LastNotificationImagePresenter.swift */; };
@@ -107,6 +109,7 @@
 		950D665C206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationManagerImplementation.swift; sourceTree = "<group>"; };
 		950D6660206D5B90007E99C2 /* ParseNotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseNotificationModel.swift; sourceTree = "<group>"; };
 		950D6667206D9DFD007E99C2 /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
+		950D6668206EC05C007E99C2 /* RemoteNotificationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationManagerDelegate.swift; sourceTree = "<group>"; };
 		95E2B71A2068493900EA2CD2 /* OutSideInsidePushNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OutSideInsidePushNotifications.entitlements; sourceTree = "<group>"; };
 		95E2B71F2069122600EA2CD2 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E2B7212069122600EA2CD2 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -265,6 +268,7 @@
 			children = (
 				950D665A206D1F3D007E99C2 /* RemoteNotificationManager.swift */,
 				950D665C206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift */,
+				950D6668206EC05C007E99C2 /* RemoteNotificationManagerDelegate.swift */,
 			);
 			path = RemoteNotificationManager;
 			sourceTree = "<group>";
@@ -658,6 +662,7 @@
 				95E2B75E20697F5A00EA2CD2 /* DetailNotificationPresenter.swift in Sources */,
 				95E2B75520697EF000EA2CD2 /* LastNotificationImagePresenter.swift in Sources */,
 				C3034B32206D3FDD000702F3 /* ImageManager.swift in Sources */,
+				950D6669206EC05C007E99C2 /* RemoteNotificationManagerDelegate.swift in Sources */,
 				C3034B2D206D3C78000702F3 /* LastNotificationInitializer.swift in Sources */,
 				C3034B36206D3FFD000702F3 /* ImageManagerDelegate.swift in Sources */,
 				C3034B24206D3BBF000702F3 /* LastNotificationImagePresenterProtocol.swift in Sources */,
@@ -693,6 +698,7 @@
 			files = (
 				950D6658206D1252007E99C2 /* DBManagerImplementation.swift in Sources */,
 				95E2B7222069122600EA2CD2 /* NotificationService.swift in Sources */,
+				950D666A206EC10C007E99C2 /* NotificationModel.swift in Sources */,
 				950D6659206D126B007E99C2 /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,9 +12,13 @@ import UserNotifications
 class RemoteNotificationManagerImplementation: RemoteNotificationManager {
     
     let dbManager = DBManagerImplemetation()
+    //var delegate: RemoteNotificationManagerDelegate!
+    
+//    init(delegate: RemoteNotificationManagerDelegate) {
+//        self.delegate = delegate
+//    }
     
     func handleNotification(with userInfo: [AnyHashable : Any]) {
-        
         
         do {
             let data = try JSONSerialization.data(withJSONObject: userInfo, options: .prettyPrinted)
@@ -24,12 +28,15 @@ class RemoteNotificationManagerImplementation: RemoteNotificationManager {
                 
                 let model = NotificationModel(value: ["imageUrl": "", "title": "\(parseModel.aps.alert.title)", "body": "" ])
                 dbManager.addData(object: model)
+                //delegate.getLastNotification(with: model)
                 return
             }
             
             let model = NotificationModel(value: ["imageUrl": "\(currentImageUrl)", "title": "\(parseModel.aps.alert.title)", "body": "\(currentBody)" ])
             
             dbManager.addData(object: model)
+            
+            //delegate.getLastNotification(with: model)
         } catch let errorMessage {
             print("\(errorMessage.localizedDescription)")
         }

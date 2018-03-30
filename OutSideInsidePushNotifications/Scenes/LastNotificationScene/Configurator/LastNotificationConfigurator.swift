@@ -13,9 +13,11 @@ class LastNotificationConfigurator {
     static func setUpModule(with viewController: LastNotificationImageViewController) {
         
         let presenter = LastNotificationImagePresenter()
+        let dbManager = DBManagerImplemetation()
         presenter.view = viewController
         viewController.presenter = presenter
         let imageManager = ImageManager(delegate: presenter)
+        presenter.dbManager = dbManager
         presenter.imageManager = imageManager
         
     }
