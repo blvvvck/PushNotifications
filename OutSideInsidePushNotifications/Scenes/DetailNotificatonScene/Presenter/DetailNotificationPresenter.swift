@@ -19,10 +19,8 @@ class DetailNotificationPresenter: DetailNotificationPresenterProtocol, ImageMan
         
         view.setNotificationHeader(text: model.title)
         view.setNotificationMessage(text: model.body)
-        if let imgUrlString = model.imageUrl {
-            if let imageUrl = URL(string: imgUrlString) {
+        if let imgUrlString = model.imageUrl, let imageUrl = URL(string: imgUrlString) {
                 imageManager.getImageFromUrl(imageURL: imageUrl)
-            }
         }
         else {
             view.hideNotificationImage()

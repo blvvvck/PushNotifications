@@ -17,12 +17,8 @@ class LastNotificationImagePresenter: LastNotificationImagePresenterProtocol, Im
     //MARK: - LastNotificationImagePresenterProtocol
     
     func updateImage(with model: NotificationModel) {
-        if let imgUrlString = model.imageUrl {
-            if let imageUrl = URL(string: imgUrlString) {
-                imageManager.getImageFromUrl(imageURL: imageUrl)
-            } else {
-                view.setPlaceholder()
-            }
+        if let imgUrlString = model.imageUrl, let imageUrl = URL(string: imgUrlString) {
+            imageManager.getImageFromUrl(imageURL: imageUrl)
         }
         else {
             view.setPlaceholder()
