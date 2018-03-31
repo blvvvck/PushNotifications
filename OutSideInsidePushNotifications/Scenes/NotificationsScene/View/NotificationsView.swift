@@ -12,4 +12,8 @@ protocol NotificationsView: class {
     
     /// Reload table view
     func refreshNotificationsView()
+    
+    /// Function to set up notifications view
+    func setUpView()
+    
 }

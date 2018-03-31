@@ -25,6 +25,7 @@ class NotificationTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        notificationImage.image = nil
     }
     
     func prepare(with notificationModel: NotificationModel) {

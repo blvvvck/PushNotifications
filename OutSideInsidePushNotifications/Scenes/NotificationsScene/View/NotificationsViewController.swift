@@ -26,15 +26,22 @@ class NotificationsViewController: UIViewController, NotificationsView {
         return refreshControl
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
+        presenter.viewIsReady()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        presenter.viewDidAppear()
+    }
+    
+    func setUpView() {
         self.tableView.addSubview(self.refreshControl)
-        
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         registerCell()
+        refreshNotificationsView()
     }
     
     private func registerCell() {
@@ -48,8 +55,6 @@ class NotificationsViewController: UIViewController, NotificationsView {
     
     //MARK: - Refresh Method
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        
-        presenter.viewDidLoad()
         refreshControl.endRefreshing()
     }
 }

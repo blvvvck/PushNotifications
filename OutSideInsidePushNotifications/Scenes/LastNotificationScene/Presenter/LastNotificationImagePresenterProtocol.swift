@@ -18,6 +18,4 @@ protocol LastNotificationImagePresenterProtocol {
     /// Function for set up LastNotificationViewController
     func viewIsReady()
     
-    /// Function for get last notification
-    func getLastNotification()
 }

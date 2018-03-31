@@ -26,12 +26,11 @@ class LastNotificationImagePresenter: LastNotificationImagePresenterProtocol, Im
     }
     
     func viewIsReady() {
-        view.setPlaceholder()
-    }
-    
-    func getLastNotification() {
         let notification = dbManager.getLastNotification()
-        guard let currentNotification = notification else { return }
+        guard let currentNotification = notification else {
+            view.setPlaceholder()
+            return
+        }
         updateImage(with: currentNotification)
     }
     

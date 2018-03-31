@@ -23,7 +23,7 @@ class LastNotificationImageViewController: UIViewController, LastNotificationIma
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        presenter.getLastNotification()
+        presenter.viewIsReady()
     }
     
     //MARK: - LastNotificationImageViewControllerProtocol

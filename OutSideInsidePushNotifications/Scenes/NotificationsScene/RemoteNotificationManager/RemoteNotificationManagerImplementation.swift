@@ -19,17 +19,20 @@ class RemoteNotificationManagerImplementation: RemoteNotificationManager {
             let data = try JSONSerialization.data(withJSONObject: userInfo, options: .prettyPrinted)
             let parseModel = try JSONDecoder().decode(ParseNotificationModel.self, from: data)
             
-            guard let currentBody = parseModel.aps.alert.body, let currentImageUrl = parseModel.data.attachmentUrl else {
+            if let currentBody = parseModel.aps.alert.body, let currentImageUrl = parseModel.data.attachmentUrl {
+                let model = NotificationModel(value: ["imageUrl": "\(currentImageUrl)", "title": "\(parseModel.aps.alert.title)", "body": "\(currentBody)" ])
                 
+                dbManager.addData(object: model)
+            } else if let currentBody = parseModel.aps.alert.body {
+                let model = NotificationModel(value: ["imageUrl": "", "title": "\(parseModel.aps.alert.title)", "body": "\(currentBody)" ])
+                dbManager.addData(object: model)
+            } else if let currentImageUrl = parseModel.data.attachmentUrl {
+                let model = NotificationModel(value: ["imageUrl": "\(currentImageUrl)", "title": "\(parseModel.aps.alert.title)", "body": "" ])
+                dbManager.addData(object: model)
+            } else {
                 let model = NotificationModel(value: ["imageUrl": "", "title": "\(parseModel.aps.alert.title)", "body": "" ])
                 dbManager.addData(object: model)
-                return
             }
-            
-            let model = NotificationModel(value: ["imageUrl": "\(currentImageUrl)", "title": "\(parseModel.aps.alert.title)", "body": "\(currentBody)" ])
-            
-            dbManager.addData(object: model)
-            
         } catch let errorMessage {
             print("\(errorMessage.localizedDescription)")
         }

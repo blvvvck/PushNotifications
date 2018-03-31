@@ -30,7 +30,7 @@ class NotificationListDataSource: NSObject, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: notificationCellIdentifier, for: indexPath) as! NotificationTableViewCell
         
         if let notifications = notificationsResults {
-            let model = notifications[indexPath.row]
+            let model = notifications.reversed()[indexPath.row]
             cell.prepare(with: model)
             return cell
         }

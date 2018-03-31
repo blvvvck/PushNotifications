@@ -10,6 +10,9 @@ import Foundation
 
 protocol NotificationsPresenter {
     
-    /// Get data from DB and give it to NotificationListDataSource
-    func viewDidLoad()
+    /// Set up Notifications view
+    func viewIsReady()
+    
+    /// Function to set up view when it did appear
+    func viewDidAppear()
 }

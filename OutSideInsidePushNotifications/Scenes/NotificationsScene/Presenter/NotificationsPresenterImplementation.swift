@@ -21,14 +21,18 @@ class NotificationsPresenterImplementation: NotificationsPresenter {
         return notifications.count
     }
     
-    func viewDidLoad() {
-        notifications = dbManager.getDataFromDB()
+    func viewIsReady() {
+        view.setUpView()
         notificationsDataSource.notificationsResults = notifications
+        handleNotificationsReceived(notifications)
+    }
+    
+    func viewDidAppear() {
         handleNotificationsReceived(notifications)
     }
     
     fileprivate func handleNotificationsReceived(_ notifications: Results<NotificationModel>) {
         self.notifications = notifications
-        view?.refreshNotificationsView()
+        view.refreshNotificationsView()
     }
 }

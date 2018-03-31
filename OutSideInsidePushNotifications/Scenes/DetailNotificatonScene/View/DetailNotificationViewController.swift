@@ -34,7 +34,6 @@ class DetailNotificationViewController: UIViewController, DetailNotificationView
     }
     
     func setNotificationImage(image: UIImage) {
-
         imageHeightConstraint.constant = imageHeightConstraintConst
         notificationImage.image = image
     }
