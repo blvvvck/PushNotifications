@@ -13,11 +13,12 @@ class DetailNotificationConfigurator {
     static func setUpModule(with viewController: DetailNotificationViewController) {
         
         let presenter = DetailNotificationPresenter()
+        let dbManager = DBManagerImplemetation()
         presenter.view = viewController
+        presenter.dbManager = dbManager
         viewController.presenter = presenter
         let imageManager = ImageManager(delegate: presenter)
         presenter.imageManager = imageManager
-        
     }
     
 }

@@ -12,14 +12,17 @@ class DetailNotificationPresenter: DetailNotificationPresenterProtocol, ImageMan
     
     var view: DetailNotificationViewControllerProtocol!
     var imageManager: ImageManagerProtocol!
+    var notificaton: NotificationModel!
+    var dbManager: DBManager!
     
     //MARK: - DetailNotificationPresenterProtocol
     
-    func prepareView(with model: NotificationModel) {
+    func prepareView(with row: Int) {
+        notificaton = dbManager.getNotification(from: row)
         
-        view.setNotificationHeader(text: model.title)
-        view.setNotificationMessage(text: model.body)
-        if let imgUrlString = model.imageUrl, let imageUrl = URL(string: imgUrlString) {
+        view.setNotificationHeader(text: notificaton.title)
+        view.setNotificationMessage(text: notificaton.body)
+        if let imgUrlString = notificaton.imageUrl, let imageUrl = URL(string: imgUrlString) {
                 imageManager.getImageFromUrl(imageURL: imageUrl)
         }
         else {

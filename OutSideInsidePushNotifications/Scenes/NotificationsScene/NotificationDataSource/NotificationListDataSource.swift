@@ -10,14 +10,20 @@ import Foundation
 import UIKit
 import RealmSwift
 
+protocol NotificationListDataSourceDelegate {
+    
+    func didTapOnCell(with row: Int)
+}
+
 class NotificationListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate  {
     
     let notificationCellIdentifier = "notificationCell"
     var notificationsResults: Results<NotificationModel>? = nil
     let rowHeight: CGFloat = 98
+    var delegate: NotificationListDataSourceDelegate!
     
-    override init() {
-        super.init()
+    init(_ delegate: NotificationListDataSourceDelegate) {
+        self.delegate = delegate
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +49,7 @@ class NotificationListDataSource: NSObject, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        delegate.didTapOnCell(with: indexPath.row)
     }
     
 }

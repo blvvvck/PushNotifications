@@ -45,4 +45,10 @@ class DBManagerImplemetation: DBManager {
         return lastNotification
     }
     
+    func getNotification(from row: Int) -> NotificationModel {
+        let results: Results<NotificationModel> = database.objects(NotificationModel.self)
+        let model = results[row]
+        return model
+    }
+    
 }

@@ -18,6 +18,8 @@ class DetailNotificationViewController: UIViewController, DetailNotificationView
     
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     
+    var row: Int!
+    
     var presenter: DetailNotificationPresenterProtocol!
     
     var imageHeightConstraintConst: CGFloat = 300
@@ -25,6 +27,7 @@ class DetailNotificationViewController: UIViewController, DetailNotificationView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.prepareView(with: row)
     }
     
     //MARK: - DetailNotificationViewControllerProtocol

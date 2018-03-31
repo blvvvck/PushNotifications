@@ -9,11 +9,12 @@
 import Foundation
 import RealmSwift
 
-class NotificationsPresenterImplementation: NotificationsPresenter {
+class NotificationsPresenterImplementation: NotificationsPresenter, NotificationListDataSourceDelegate {
     
     weak var view: NotificationsView!
     var dbManager: DBManager!
     var notificationsDataSource: NotificationListDataSource!
+    var router: NotificationsViewRouter!
     
     lazy var notifications: Results<NotificationModel> = { dbManager.getDataFromDB() }()
     
@@ -34,5 +35,9 @@ class NotificationsPresenterImplementation: NotificationsPresenter {
     fileprivate func handleNotificationsReceived(_ notifications: Results<NotificationModel>) {
         self.notifications = notifications
         view.refreshNotificationsView()
+    }
+    
+    func didTapOnCell(with row: Int) {
+        router.presentDetailNotification(for: row)
     }
 }
