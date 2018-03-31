@@ -18,6 +18,7 @@ class NotificationView: UIView {
     
     @IBOutlet weak var notificationBody: UITextView!
 
+    @IBOutlet weak var notificationBodyLabel: UILabel!
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -48,7 +49,7 @@ class NotificationView: UIView {
     
     func setUpNotification(title: String, body: String, image: UIImage) {
         notificationTitle.text = title
-        notificationBody.text = body
+        notificationBodyLabel.text = body
         notificationImage.image = image
     }
     

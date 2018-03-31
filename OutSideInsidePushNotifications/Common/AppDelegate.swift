@@ -108,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (application.applicationState == .active) {
             remoteNotificationManager.handleNotification(with: userInfo)
             
-            notifView = UIView(frame: CGRect(x: 10, y: -70, width: (window?.frame.size.width)!, height: 80))
+            notifView = UIView(frame: CGRect(x: 10, y: -170, width: 320, height: 120))
             let myView = NotificationView()
             myView.setUpNotification(title: "Notif title", body: "Body", image: UIImage(named: "Placeholder")!)
 
@@ -116,13 +116,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.addSubview(notifView)
 
             UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: .curveEaseIn, animations: {() -> Void in
-                self.notifView.frame = CGRect(x: 30, y: 30, width: (self.window?.frame.size.width)!, height: 60)
+                myView.setUpNotification(title: "push title", body: "push body", image: UIImage(named: "Placeholder")!)
+                self.notifView.addSubview(myView)
+                self.notifView.frame = CGRect(x: 10, y: 30, width: 300, height: 110 )
+                self.notifView.backgroundColor = UIColor.white
+                self.notifView.backgroundColor = UIColor.white
+                self.notifView.layer.cornerRadius = 10
+                self.notifView.layer.shadowColor = UIColor.black.cgColor
+                self.notifView.layer.shadowOffset = CGSize(width: 3, height: 3)
+                self.notifView.layer.shadowOpacity = 0.4
+                self.notifView.layer.shadowRadius = 2.0
             }, completion: {(_ finished: Bool) -> Void in
             })
             
-//            //Remove from top view after 5 seconds
-//            perform(#selector(self.dismissNotifFromScreen), with: nil, afterDelay: 5.0)
-//            return
+            //Remove from top view after 5 seconds
+            perform(#selector(self.dismissNotifFromScreen), with: nil, afterDelay: 5.0)
+            return
             
            //говорим локальному
          //бэкграунд
