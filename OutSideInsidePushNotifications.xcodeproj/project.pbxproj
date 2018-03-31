@@ -49,6 +49,8 @@
 		C3101E1F206C2450004C38A9 /* DetailNotificationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3101E1E206C2450004C38A9 /* DetailNotificationPresenterProtocol.swift */; };
 		C3101E22206C26DE004C38A9 /* DetailNotificationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3101E21206C26DE004C38A9 /* DetailNotificationConfigurator.swift */; };
 		C3101E24206C2709004C38A9 /* DetailNotificationInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3101E23206C2709004C38A9 /* DetailNotificationInitializer.swift */; };
+		C3273E75206F87F8001CB571 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3273E74206F87F7001CB571 /* NotificationView.xib */; };
+		C3273E77206F88D1001CB571 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3273E76206F88D1001CB571 /* NotificationView.swift */; };
 		D9D0A2E6E80D6AF640D8ED17 /* Pods_NotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE07038A2CB3A5929E01586 /* Pods_NotificationService.framework */; };
 		F8908FB0E2950B778B1E2149 /* Pods_OutSideInsidePushNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26547D68C12F0C3C441A1BA /* Pods_OutSideInsidePushNotifications.framework */; };
 /* End PBXBuildFile section */
@@ -128,6 +130,8 @@
 		C3101E1E206C2450004C38A9 /* DetailNotificationPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationPresenterProtocol.swift; sourceTree = "<group>"; };
 		C3101E21206C26DE004C38A9 /* DetailNotificationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationConfigurator.swift; sourceTree = "<group>"; };
 		C3101E23206C2709004C38A9 /* DetailNotificationInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationInitializer.swift; sourceTree = "<group>"; };
+		C3273E74206F87F7001CB571 /* NotificationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
+		C3273E76206F88D1001CB571 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		D26547D68C12F0C3C441A1BA /* Pods_OutSideInsidePushNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OutSideInsidePushNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -192,6 +196,8 @@
 				95E2B74F20697E9600EA2CD2 /* Scenes */,
 				C3101E1D206C2367004C38A9 /* Common */,
 				C3034B3A206D48A9000702F3 /* OutSideInsidePushNotifications-Bridging-Header.h */,
+				C3273E74206F87F7001CB571 /* NotificationView.xib */,
+				C3273E76206F88D1001CB571 /* NotificationView.swift */,
 			);
 			path = OutSideInsidePushNotifications;
 			sourceTree = "<group>";
@@ -531,6 +537,7 @@
 				7CAC19582067F21300B38ACE /* LaunchScreen.storyboard in Resources */,
 				7CAC19552067F21300B38ACE /* Assets.xcassets in Resources */,
 				7CAC19532067F21300B38ACE /* Main.storyboard in Resources */,
+				C3273E75206F87F8001CB571 /* NotificationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +662,7 @@
 				950D6643206C66E1007E99C2 /* NotificationModel.swift in Sources */,
 				950D6648206C66E7007E99C2 /* NotificationTableViewCell.swift in Sources */,
 				950D663B206C66D6007E99C2 /* NotificationsViewController.swift in Sources */,
+				C3273E77206F88D1001CB571 /* NotificationView.swift in Sources */,
 				950D663A206C66D6007E99C2 /* NotificationsView.swift in Sources */,
 				950D6636206C66D0007E99C2 /* NotificationsPresenterImplementation.swift in Sources */,
 				950D665D206D230A007E99C2 /* RemoteNotificationManagerImplementation.swift in Sources */,
