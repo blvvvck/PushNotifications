@@ -34,6 +34,5 @@ class LastNotificationImageViewController: UIViewController, LastNotificationIma
     
     func setPlaceholder() {
         lastNotificationImage.image = placeholderImage
-    }
-    
+    }    
 }
