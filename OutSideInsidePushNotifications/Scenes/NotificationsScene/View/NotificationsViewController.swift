@@ -22,7 +22,6 @@ class NotificationsViewController: UIViewController, NotificationsView {
             #selector(self.handleRefresh(_:)),
                                  for: UIControlEvents.valueChanged)
         refreshControl.tintColor = UIColor.red
-        
         return refreshControl
     }()
     

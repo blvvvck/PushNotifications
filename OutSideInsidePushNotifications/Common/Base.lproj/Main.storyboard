@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CD2-4x-0au">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -35,7 +35,6 @@
                     <tabBarItem key="tabBarItem" title="Notifications" id="yZf-Es-s5k"/>
                     <connections>
                         <outlet property="tableView" destination="CD2-4x-0au" id="SzN-QZ-i1C"/>
-                        <segue destination="qvK-BI-W7d" kind="show" identifier="NotificationsToDetailNotification" id="PBV-ab-MQ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zn7-Q4-FfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -55,8 +54,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJH-iN-Rrg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="R2W-5O-Wos"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title=" " leftItemsSupplementBackButton="YES" id="5iZ-XY-gvJ" userLabel=" ">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Kb5-g3-fW3">
+                                            <connections>
+                                                <segue destination="s2x-Qt-rUQ" kind="show" id="4WX-SQ-W7I"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zj9-h0-gSn">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElX-z8-fEh">
                                         <rect key="frame" x="0.0" y="20" width="375" height="29"/>
@@ -94,14 +108,27 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="Zj9-h0-gSn" firstAttribute="top" secondItem="oiV-Qg-pPl" secondAttribute="top" id="1ra-jD-GRB"/>
+                            <constraint firstAttribute="trailing" secondItem="ZJH-iN-Rrg" secondAttribute="trailing" id="1U0-b4-cUq"/>
                             <constraint firstItem="XF8-5I-wFh" firstAttribute="bottom" secondItem="Zj9-h0-gSn" secondAttribute="bottom" id="5tf-zk-qcK"/>
+                            <constraint firstItem="Zj9-h0-gSn" firstAttribute="top" secondItem="ZJH-iN-Rrg" secondAttribute="bottom" id="8go-hy-9C6"/>
                             <constraint firstItem="Zj9-h0-gSn" firstAttribute="leading" secondItem="oiV-Qg-pPl" secondAttribute="leading" id="BrU-zh-3Xm"/>
+                            <constraint firstItem="ZJH-iN-Rrg" firstAttribute="leading" secondItem="oiV-Qg-pPl" secondAttribute="leading" id="EWU-Gt-pVF"/>
                             <constraint firstItem="XF8-5I-wFh" firstAttribute="trailing" secondItem="Zj9-h0-gSn" secondAttribute="trailing" id="EYv-vc-WGX"/>
+                            <constraint firstItem="ZJH-iN-Rrg" firstAttribute="top" secondItem="oiV-Qg-pPl" secondAttribute="top" id="zh1-tc-JJk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XF8-5I-wFh"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="YEY-jj-A39" appends="YES" id="rdu-Ba-nHM"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="imageHeightConstraint" destination="CYZ-JN-VLg" id="CMO-M7-kLD"/>
+                        <outlet property="notificationHeader" destination="ElX-z8-fEh" id="oBY-7m-8fr"/>
+                        <outlet property="notificationImage" destination="1K2-rq-f1e" id="BhQ-Ya-Z0e"/>
+                        <outlet property="notificationMessage" destination="jEh-Qs-F5s" id="Gjz-CN-Zyr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mu0-s5-BVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="TPp-Gm-2ey" customClass="DetailNotificationInitializer" customModule="OutSideInsidePushNotifications" customModuleProvider="target">
@@ -109,6 +136,11 @@
                         <outlet property="viewController" destination="qvK-BI-W7d" id="p80-xe-WaK"/>
                     </connections>
                 </customObject>
+                <swipeGestureRecognizer direction="right" id="YEY-jj-A39">
+                    <connections>
+                        <action selector="swipeToNotificationsTable:" destination="qvK-BI-W7d" id="dtf-Nw-QzT"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1562" y="481"/>
         </scene>
@@ -166,4 +198,7 @@
             <point key="canvasLocation" x="-105" y="196"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4WX-SQ-W7I"/>
+    </inferredMetricsTieBreakers>
 </document>

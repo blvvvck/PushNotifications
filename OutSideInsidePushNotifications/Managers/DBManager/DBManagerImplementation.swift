@@ -47,7 +47,7 @@ class DBManagerImplemetation: DBManager {
     
     func getNotification(from row: Int) -> NotificationModel {
         let results: Results<NotificationModel> = database.objects(NotificationModel.self)
-        let model = results[row]
+        let model = results.reversed()[row]
         return model
     }
     

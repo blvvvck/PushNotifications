@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 import RealmSwift
 
-protocol NotificationListDataSourceDelegate {
-    
-    func didTapOnCell(with row: Int)
-}
-
 class NotificationListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate  {
     
     let notificationCellIdentifier = "notificationCell"

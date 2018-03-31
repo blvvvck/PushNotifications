@@ -11,17 +11,12 @@ import UIKit
 class DetailNotificationViewController: UIViewController, DetailNotificationViewControllerProtocol {
     
     @IBOutlet weak var notificationHeader: UILabel!
-    
     @IBOutlet weak var notificationImage: UIImageView!
-    
     @IBOutlet weak var notificationMessage: UITextView!
-    
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     
     var row: Int!
-    
     var presenter: DetailNotificationPresenterProtocol!
-    
     var imageHeightConstraintConst: CGFloat = 300
     var zeroheightConstraintConst: CGFloat = 0
     
@@ -47,6 +42,14 @@ class DetailNotificationViewController: UIViewController, DetailNotificationView
     
     func hideNotificationImage() {
         imageHeightConstraint.constant = zeroheightConstraintConst
+    }
+    
+    //MARK: - Swipe Gesture Recognizer
+    
+    @IBAction func swipeToNotificationsTable(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == UISwipeGestureRecognizerDirection.right {
+            presenter.didSwiped()
+        }
     }
     
 }

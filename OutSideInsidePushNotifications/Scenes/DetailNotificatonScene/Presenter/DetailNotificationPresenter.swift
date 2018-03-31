@@ -14,20 +14,24 @@ class DetailNotificationPresenter: DetailNotificationPresenterProtocol, ImageMan
     var imageManager: ImageManagerProtocol!
     var notificaton: NotificationModel!
     var dbManager: DBManager!
+    var router: DetailNotificationRouter!
     
     //MARK: - DetailNotificationPresenterProtocol
     
     func prepareView(with row: Int) {
         notificaton = dbManager.getNotification(from: row)
-        
-        view.setNotificationHeader(text: notificaton.title)
-        view.setNotificationMessage(text: notificaton.body)
-        if let imgUrlString = notificaton.imageUrl, let imageUrl = URL(string: imgUrlString) {
-                imageManager.getImageFromUrl(imageURL: imageUrl)
+        self.view.setNotificationHeader(text: self.notificaton.title)
+        self.view.setNotificationMessage(text: self.notificaton.body)
+        if let imgUrlString = self.notificaton.imageUrl, let imageUrl = URL(string: imgUrlString) {
+            self.imageManager.getImageFromUrl(imageURL: imageUrl)
         }
         else {
-            view.hideNotificationImage()
+            self.view.hideNotificationImage()
         }
+    }
+    
+    func didSwiped() {
+        router.presentNotificationsTable()
     }
     
     //MARK: - ImageManagerDelegate

@@ -9,10 +9,10 @@
 import Foundation
 
 protocol NotificationsViewRouter: ViewRouter {
-    
-    
+        
     /// Present notification's detail screen
     ///
     /// - Parameter row: notification's number in array of all notifications
     func presentDetailNotification(for row: Int)
+    
 }
