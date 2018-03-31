@@ -141,6 +141,35 @@
             </objects>
             <point key="canvasLocation" x="745" y="-272"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="osx-9C-f1J">
+            <objects>
+                <viewController id="ZzB-p2-m3p" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M8N-sc-q0f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z98-Xl-qGt" customClass="NotificationView" customModule="OutSideInsidePushNotifications" customModuleProvider="target">
+                                <rect key="frame" x="30" y="30" width="315" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="bRW-g8-aE9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z98-Xl-qGt" firstAttribute="top" secondItem="M8N-sc-q0f" secondAttribute="top" constant="30" id="SlY-aH-pp5"/>
+                            <constraint firstItem="hsi-YA-5LV" firstAttribute="trailing" secondItem="Z98-Xl-qGt" secondAttribute="trailing" constant="30" id="Wtw-an-44V"/>
+                            <constraint firstItem="Z98-Xl-qGt" firstAttribute="leading" secondItem="hsi-YA-5LV" secondAttribute="leading" constant="30" id="hK6-ab-6Q8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hsi-YA-5LV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lsD-za-2V4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="-237"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XyV-Pu-n22">
             <objects>

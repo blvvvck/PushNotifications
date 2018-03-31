@@ -9,18 +9,52 @@
 import UIKit
 
 class NotificationView: UIView {
+        
+    @IBOutlet var contentView: UIView!
     
     @IBOutlet weak var notificationImage: UIImageView!
     
     @IBOutlet weak var notificationTitle: UILabel!
     
     @IBOutlet weak var notificationBody: UITextView!
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    
+    private func commonInit() {
+        
+        Bundle.main.loadNibNamed("NotificationView", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        
+        contentView.backgroundColor = UIColor.white
+        contentView.layer.cornerRadius = 10
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        contentView.layer.shadowOpacity = 0.7
+        contentView.layer.shadowRadius = 4.0
+        
+        
+        
+    }
+    
+    func setUpNotification(title: String, body: String, image: UIImage) {
+        notificationTitle.text = title
+        notificationBody.text = body
+        notificationImage.image = image
+    }
+    
+    @IBAction func notificationTapped(_ sender: Any) {
+        print("Tapped!")
+    }
+    
+    
 }

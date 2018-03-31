@@ -108,41 +108,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (application.applicationState == .active) {
             remoteNotificationManager.handleNotification(with: userInfo)
             
-//            let notifMessage = "MESSAAAGE"
-//            //Define notifView as UIView in the header file
-//            notifView.removeFromSuperview()
-//            //If already existing
-//            notifView = UIView(frame: CGRect(x: 0, y: -70, width: (window?.frame.size.width)!, height: 80))
-//            notifView.backgroundColor = UIColor.blue
-//            let imageView = UIImageView(frame: CGRect(x: 10, y: 15, width: 30, height: 30))
-//            imageView.image = UIImage(named: "Placeholder")
-//            let myLabel = UILabel(frame: CGRect(x: 60, y: 15, width: (window?.frame.size.width)! - 100, height: 30))
-//            if let aSize = UIFont(name: "Helvetica", size: 10.0) {
-//                myLabel.font = aSize
-//            }
-//            myLabel.text = notifMessage
-//            myLabel.textColor = UIColor.black
-//            myLabel.numberOfLines = 0
-//            notifView.alpha = 0.95
-//            //The Icon
-//            notifView.addSubview(imageView)
-//            //The Text
-//            notifView.addSubview(myLabel)
-//            //The View
-//            window!.addSubview(notifView)
-//            let tapToDismissNotif = UITapGestureRecognizer(target: self, action: #selector(self.dismissNotifFromScreen))
-//            tapToDismissNotif.numberOfTapsRequired = 1
-//            tapToDismissNotif.numberOfTouchesRequired = 1
-//            notifView.addGestureRecognizer(tapToDismissNotif)
-//            UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: .curveEaseIn, animations: {() -> Void in
-//                self.notifView.frame = CGRect(x: 0, y: 0, width: (self.window?.frame.size.width)!, height: 60)
-//            }, completion: {(_ finished: Bool) -> Void in
-//            })
+            notifView = UIView(frame: CGRect(x: 10, y: -70, width: (window?.frame.size.width)!, height: 80))
+            let myView = NotificationView()
+            myView.setUpNotification(title: "Notif title", body: "Body", image: UIImage(named: "Placeholder")!)
+
+            notifView.addSubview(myView)
+            window!.addSubview(notifView)
+
+            UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: .curveEaseIn, animations: {() -> Void in
+                self.notifView.frame = CGRect(x: 30, y: 30, width: (self.window?.frame.size.width)!, height: 60)
+            }, completion: {(_ finished: Bool) -> Void in
+            })
+            
 //            //Remove from top view after 5 seconds
 //            perform(#selector(self.dismissNotifFromScreen), with: nil, afterDelay: 5.0)
 //            return
-            
-            
             
            //говорим локальному
          //бэкграунд
