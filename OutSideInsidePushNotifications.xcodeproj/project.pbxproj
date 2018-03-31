@@ -217,6 +217,7 @@
 		950D6637206C66D6007E99C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				950D6644206C66E7007E99C2 /* CustomTableViewCells */,
 				950D6638206C66D6007E99C2 /* NotificationsView.swift */,
 				950D6639206C66D6007E99C2 /* NotificationsViewController.swift */,
 			);
@@ -230,14 +231,6 @@
 				950D663E206C66DC007E99C2 /* DBManager.swift */,
 			);
 			path = DBManager;
-			sourceTree = "<group>";
-		};
-		950D6641206C66E1007E99C2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				950D6660206D5B90007E99C2 /* ParseNotificationModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		950D6644206C66E7007E99C2 /* CustomTableViewCells */ = {
@@ -310,10 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				950D665F206D5B29007E99C2 /* NotificationDataSource */,
-				950D665E206D5B17007E99C2 /* RemoteNotificationManager */,
-				950D6644206C66E7007E99C2 /* CustomTableViewCells */,
-				950D6641206C66E1007E99C2 /* Models */,
-				950D663C206C66DC007E99C2 /* DBManager */,
 				950D6637206C66D6007E99C2 /* View */,
 				950D6632206C66D0007E99C2 /* Presenter */,
 				950D662F206C66C9007E99C2 /* Configurator */,
@@ -361,6 +350,7 @@
 		C3034B2E206D3F9A000702F3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				950D6660206D5B90007E99C2 /* ParseNotificationModel.swift */,
 				C3034B1F206C37B9000702F3 /* ImageModel.swift */,
 				950D6642206C66E1007E99C2 /* NotificationModel.swift */,
 			);
@@ -370,6 +360,8 @@
 		C3034B2F206D3FB9000702F3 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				950D663C206C66DC007E99C2 /* DBManager */,
+				950D665E206D5B17007E99C2 /* RemoteNotificationManager */,
 				C3034B30206D3FC3000702F3 /* ImageManager */,
 			);
 			path = Managers;
