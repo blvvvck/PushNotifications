@@ -42,9 +42,6 @@ class NotificationView: UIView {
         contentView.layer.shadowOffset = CGSize(width: 3, height: 3)
         contentView.layer.shadowOpacity = 0.7
         contentView.layer.shadowRadius = 4.0
-        
-        
-        
     }
     
     func setUpNotification(title: String, body: String, image: UIImage) {

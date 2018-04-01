@@ -13,7 +13,7 @@ protocol LocalNotificationManager {
     /// Show notification on screen
     ///
     /// - Parameter window: 
-    func showNotification(_ window: inout UIWindow)
+    func showNotification(_ window: inout UIWindow, and userInfo: [AnyHashable: Any])
     
     /// This method sets up notification view
     func setUpNotificationView()

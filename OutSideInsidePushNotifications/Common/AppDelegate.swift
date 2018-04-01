@@ -18,18 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        self.window = UIWindow(frame: UIScreen.main.bounds)
         registerForPushNotifications()
-       
-        if let userInfo =  launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
-            
-            remoteNotificationManager.handleNotification(with: userInfo)
-            self.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: { (_)  in  })
-        }
-       
-        let navController = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController()
-        self.window!.rootViewController = navController
-        self.window!.makeKeyAndVisible()
+    
         return true
     }
 
@@ -100,54 +90,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var notifView = UIView()
     
-//    @objc func dismissNotifFromScreen() {
-//        UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: .curveEaseIn, animations: {() -> Void in
-//            self.notifView.frame = CGRect(x: 0, y: -70, width: (self.window?.frame.size.width)!, height: 60)
-//        }, completion: {(_ finished: Bool) -> Void in
-//        })
-//    }
-    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        //открыто
         if (application.applicationState == .active) {
-            remoteNotificationManager.handleNotification(with: userInfo)
-            localNotificationManager.showNotification(&window!)
             
-//            notifView = UIView(frame: CGRect(x: 10, y: -170, width: 320, height: 120))
-//            let myView = NotificationView()
-//            myView.setUpNotification(title: "Notif title", body: "Body", image: UIImage(named: "Placeholder")!)
-//
-//            notifView.addSubview(myView)
-//            window!.addSubview(notifView)
-//
-//            UIView.animate(withDuration: 1.0, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: .curveEaseIn, animations: {() -> Void in
-//                myView.setUpNotification(title: "push title", body: "push body", image: UIImage(named: "Placeholder")!)
-//                self.notifView.addSubview(myView)
-//                self.notifView.frame = CGRect(x: 10, y: 30, width: 300, height: 110 )
-//                self.notifView.backgroundColor = UIColor.white
-//                self.notifView.backgroundColor = UIColor.white
-//                self.notifView.layer.cornerRadius = 10
-//                self.notifView.layer.shadowColor = UIColor.black.cgColor
-//                self.notifView.layer.shadowOffset = CGSize(width: 3, height: 3)
-//                self.notifView.layer.shadowOpacity = 0.4
-//                self.notifView.layer.shadowRadius = 2.0
-//            }, completion: {(_ finished: Bool) -> Void in
-//            })
-//
-//            //Remove from top view after 5 seconds
-//            perform(#selector(self.dismissNotifFromScreen), with: nil, afterDelay: 5.0)
-//            return
+            localNotificationManager.showNotification(&window!, and: userInfo)
             
-           //говорим локальному
-         //бэкграунд
-        } else if (application.applicationState == .background) {
-            remoteNotificationManager.handleNotification(with: userInfo)
-        }
-        else if (application.applicationState == .inactive) {
+        } else if ( application.applicationState == .inactive) {
             remoteNotificationManager.handleNotification(with: userInfo)
         }
     }
-    
 }
 

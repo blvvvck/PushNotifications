@@ -55,6 +55,7 @@ class NotificationsViewController: UIViewController, NotificationsView {
     
     //MARK: - Refresh Method
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        refreshNotificationsView()
         refreshControl.endRefreshing()
     }
 }
