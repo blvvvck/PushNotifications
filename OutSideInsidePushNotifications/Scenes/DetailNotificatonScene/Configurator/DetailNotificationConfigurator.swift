@@ -15,16 +15,13 @@ class DetailNotificationConfigurator {
         let presenter = DetailNotificationPresenter()
         let dbManager = DBManagerImplemetation()
         let imageManager = ImageManager(delegate: presenter)
-        let router = DetailNotificationRouter()
 
         presenter.view = viewController
         presenter.dbManager = dbManager
         presenter.imageManager = imageManager
-        presenter.router = router
         
         viewController.presenter = presenter
         
-        router.view = viewController
         
     }
 }

@@ -53,8 +53,6 @@
 		C3101E22206C26DE004C38A9 /* DetailNotificationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3101E21206C26DE004C38A9 /* DetailNotificationConfigurator.swift */; };
 		C3101E24206C2709004C38A9 /* DetailNotificationInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3101E23206C2709004C38A9 /* DetailNotificationInitializer.swift */; };
 		C3273E7920704200001CB571 /* NotificationListDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3273E7820704200001CB571 /* NotificationListDataSourceDelegate.swift */; };
-		C3273E7C20704A00001CB571 /* DetailNotificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3273E7B20704A00001CB571 /* DetailNotificationRouter.swift */; };
-		C3273E7E20704A0B001CB571 /* DetailNotificationRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3273E7D20704A0B001CB571 /* DetailNotificationRouterProtocol.swift */; };
 		D9D0A2E6E80D6AF640D8ED17 /* Pods_NotificationService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE07038A2CB3A5929E01586 /* Pods_NotificationService.framework */; };
 		F8908FB0E2950B778B1E2149 /* Pods_OutSideInsidePushNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26547D68C12F0C3C441A1BA /* Pods_OutSideInsidePushNotifications.framework */; };
 /* End PBXBuildFile section */
@@ -138,8 +136,6 @@
 		C3101E21206C26DE004C38A9 /* DetailNotificationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationConfigurator.swift; sourceTree = "<group>"; };
 		C3101E23206C2709004C38A9 /* DetailNotificationInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationInitializer.swift; sourceTree = "<group>"; };
 		C3273E7820704200001CB571 /* NotificationListDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListDataSourceDelegate.swift; sourceTree = "<group>"; };
-		C3273E7B20704A00001CB571 /* DetailNotificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationRouter.swift; sourceTree = "<group>"; };
-		C3273E7D20704A0B001CB571 /* DetailNotificationRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationRouterProtocol.swift; sourceTree = "<group>"; };
 		D26547D68C12F0C3C441A1BA /* Pods_OutSideInsidePushNotifications.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OutSideInsidePushNotifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -345,7 +341,6 @@
 		95E2B75A20697F3600EA2CD2 /* DetailNotificatonScene */ = {
 			isa = PBXGroup;
 			children = (
-				C3273E7A207049E0001CB571 /* Router */,
 				C3101E26206C275F004C38A9 /* View */,
 				C3101E25206C274B004C38A9 /* Presenter */,
 				C3101E20206C26C2004C38A9 /* Configurator */,
@@ -456,15 +451,6 @@
 				95E2B75B20697F4E00EA2CD2 /* DetailNotificationViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		C3273E7A207049E0001CB571 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				C3273E7B20704A00001CB571 /* DetailNotificationRouter.swift */,
-				C3273E7D20704A0B001CB571 /* DetailNotificationRouterProtocol.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -689,7 +675,6 @@
 				950D665B206D1F3D007E99C2 /* RemoteNotificationManager.swift in Sources */,
 				95E2B75E20697F5A00EA2CD2 /* DetailNotificationPresenter.swift in Sources */,
 				95E2B75520697EF000EA2CD2 /* LastNotificationImagePresenter.swift in Sources */,
-				C3273E7C20704A00001CB571 /* DetailNotificationRouter.swift in Sources */,
 				C3034B32206D3FDD000702F3 /* ImageManager.swift in Sources */,
 				C3034B2D206D3C78000702F3 /* LastNotificationInitializer.swift in Sources */,
 				C3034B36206D3FFD000702F3 /* ImageManagerDelegate.swift in Sources */,
@@ -713,7 +698,6 @@
 				950D6635206C66D0007E99C2 /* NotificationsPresenter.swift in Sources */,
 				950D6661206D5B90007E99C2 /* ParseNotificationModel.swift in Sources */,
 				950D664B206C66F2007E99C2 /* NotificationListDataSource.swift in Sources */,
-				C3273E7E20704A0B001CB571 /* DetailNotificationRouterProtocol.swift in Sources */,
 				950D663F206C66DC007E99C2 /* DBManagerImplementation.swift in Sources */,
 				950D664C206C66F2007E99C2 /* NotificationsInitializer.swift in Sources */,
 				950D6673206FE638007E99C2 /* NotifcationsViewRouter.swift in Sources */,

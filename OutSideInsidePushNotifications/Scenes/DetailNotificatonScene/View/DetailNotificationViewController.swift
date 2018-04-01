@@ -43,13 +43,5 @@ class DetailNotificationViewController: UIViewController, DetailNotificationView
     func hideNotificationImage() {
         imageHeightConstraint.constant = zeroheightConstraintConst
     }
-    
-    //MARK: - Swipe Gesture Recognizer
-    
-//    @IBAction func swipeToNotificationsTable(_ sender: UISwipeGestureRecognizer) {
-//        if sender.direction == UISwipeGestureRecognizerDirection.right {
-//            presenter.didSwiped()
-//        }
-//    }
 
 }

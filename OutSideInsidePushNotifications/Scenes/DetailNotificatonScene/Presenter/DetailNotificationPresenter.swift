@@ -14,7 +14,6 @@ class DetailNotificationPresenter: DetailNotificationPresenterProtocol, ImageMan
     var imageManager: ImageManagerProtocol!
     var notificaton: NotificationModel!
     var dbManager: DBManager!
-    var router: DetailNotificationRouter!
     
     //MARK: - DetailNotificationPresenterProtocol
     
@@ -28,10 +27,6 @@ class DetailNotificationPresenter: DetailNotificationPresenterProtocol, ImageMan
         else {
             self.view.hideNotificationImage()
         }
-    }
-    
-    func didSwiped() {
-        router.presentNotificationsTable()
     }
     
     //MARK: - ImageManagerDelegate

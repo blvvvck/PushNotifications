@@ -15,7 +15,4 @@ protocol DetailNotificationPresenterProtocol {
     /// - Parameter model: notification's number in array
     func prepareView(with row: Int)
     
-    /// Function for catch swipe gesture
-    func didSwiped()
-    
 }
