@@ -11,19 +11,15 @@ import Foundation
 class NotificationsViewRouterImplementation: NotificationsViewRouter {
     
     fileprivate weak var notificationsViewController: NotificationsViewController?
-    let detailViewControllerIdentifier = "DetailNotificationViewController"
+    let toDetailViewControllerIdentifier = "detailViewControllerIdentifier"
     let storyboardName = "Main"
     
     init(_ notificationViewController: NotificationsViewController) {
         self.notificationsViewController = notificationViewController
     }
     
-    func presentDetailNotification(for row: Int) {
-        let nextVC = UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: detailViewControllerIdentifier) as! DetailNotificationViewController
-        nextVC.row = row
-        if let tableViewController = notificationsViewController {
-            tableViewController.present(nextVC, animated: true, completion: nil)
-        }
+    func presentDetailNotification(for row: Int) {       
+        notificationsViewController?.performSegue(withIdentifier: toDetailViewControllerIdentifier, sender: nil)
     }
     
 }

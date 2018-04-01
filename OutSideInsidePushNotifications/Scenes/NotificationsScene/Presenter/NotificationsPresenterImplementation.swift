@@ -38,8 +38,8 @@ class NotificationsPresenterImplementation: NotificationsPresenter, Notification
     }
     
     func didTapOnCell(with row: Int) {
+        view.setRow(number: row)
         router.presentDetailNotification(for: row)
     }
-    
     
 }

@@ -15,6 +15,7 @@ class NotificationsViewController: UIViewController, NotificationsView {
     let notificationCellIdentifier = "notificationCell"
     var presenter: NotificationsPresenter!
     let notificationCellNibIdentifier = "NotificationTableViewCell"
+    var row: Int!
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -50,6 +51,16 @@ class NotificationsViewController: UIViewController, NotificationsView {
     
     func refreshNotificationsView() {
         tableView.reloadData()
+    }
+    
+    func setRow(number: Int) {
+        self.row = number
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let notificationDetailView = segue.destination as? DetailNotificationViewController {
+            notificationDetailView.row = row
+        }
     }
     
     //MARK: - Refresh Method
