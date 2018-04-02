@@ -16,4 +16,9 @@ protocol NotificationsView: class {
     /// Function to set up notifications view
     func setUpView()
     
+    /// Function to set row number
+    ///
+    /// - Parameter number: number of row
+    func setRow(number: Int)
+    
 }

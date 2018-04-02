@@ -37,4 +37,11 @@ protocol DBManager {
     ///
     /// - Returns: notification model
     func getLastNotification() -> NotificationModel?
+    
+    
+    /// Get notification from db by row
+    ///
+    /// - Parameter row: notification's row in array
+    /// - Returns: notification model
+    func getNotification(from row: Int) -> NotificationModel
 }
