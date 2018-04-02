@@ -11,13 +11,15 @@ import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    var remoteNotificationManager = RemoteNotificationManagerImplementation()
+    var localNotificationManager = LocalNotificationManagerImplementation()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
         registerForPushNotifications()
+        
         return true
     }
 
@@ -79,11 +81,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register push notifications")
+        print(error.localizedDescription)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler(UNNotificationPresentationOptions.alert)
     }
-
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        if (application.applicationState == .active) {
+            
+            localNotificationManager.showNotification(&window!, and: userInfo)
+            
+        } else if ( application.applicationState == .inactive) {
+            remoteNotificationManager.handleNotification(with: userInfo)
+            remoteNotificationManager.openDetailNotificationAfterTap(with: &window!)
+        }
+    }
 }
 

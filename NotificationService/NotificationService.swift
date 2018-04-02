@@ -7,6 +7,9 @@
 //
 
 import UserNotifications
+import RealmSwift
+import Realm
+import SDWebImage
 
 class NotificationService: UNNotificationServiceExtension {
 
@@ -14,7 +17,6 @@ class NotificationService: UNNotificationServiceExtension {
     var bestAttemptContent: UNMutableNotificationContent?
 
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
-        print("masuk did receive")
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
@@ -30,12 +32,11 @@ class NotificationService: UNNotificationServiceExtension {
             return failEarly()
         }
         
-        guard let attachmentURL = apnsData["attachment-url"] as? String else {
+        guard let attachmentURL = apnsData["attachmentUrl"] as? String else {
             return failEarly()
         }
         
         guard let imageData = NSData(contentsOf: URL(string: attachmentURL)!) else {
-            
             return failEarly()
         }
         
@@ -48,15 +49,11 @@ class NotificationService: UNNotificationServiceExtension {
     }
     
     override func serviceExtensionTimeWillExpire() {
-        // Called just before the extension will be terminated by the system.
-        // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
         if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
             contentHandler(bestAttemptContent)
         }
     }
 }
-
-// and already implemented push notifications extension
 
 extension UNNotificationAttachment {
     static func create(imageFileIdentifier: String, data: NSData, options: [NSObject : AnyObject]?) -> UNNotificationAttachment? {
