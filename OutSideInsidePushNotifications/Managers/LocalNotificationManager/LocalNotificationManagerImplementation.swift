@@ -12,7 +12,7 @@ import UIKit
 class LocalNotificationManagerImplementation: LocalNotificationManager {    
    
     var notifView: UIView = UIView()
-    var currentWindow: UIWindow!
+    var currentWindow = UIWindow()
     var dbManager: DBManager!
     let pushViewXPosition = 10
     let pushViewWidth = 300
@@ -32,7 +32,7 @@ class LocalNotificationManagerImplementation: LocalNotificationManager {
         remoteNotificationsManager.handleNotification(with: userInfo)
         
         currentWindow = window
-        
+                
         setUpNotificationView()
         
     }
@@ -46,6 +46,6 @@ class LocalNotificationManagerImplementation: LocalNotificationManager {
         myView.setUpNotification(with: currentNotification)
         notifView.addSubview(myView)
         currentWindow.addSubview(notifView)
-        myView.presentAnimation(&notifView)
+        myView.presentAnimation(&notifView, &currentWindow)
     }
 }

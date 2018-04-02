@@ -35,6 +35,11 @@ class NotificationView: UIView {
     var notifView = UIView()
     let timeToDismissByUser: DispatchTimeInterval = .seconds(0)
     let timeToDismiss: DispatchTimeInterval = .seconds(5)
+    var currentWindow = UIWindow()
+    let rowOfFirstElementInNotificationsArray = 0
+    let secondTabBarIndex = 1
+    let detailNotificationViewControllerIdentifier = "DetailNotificationViewController"
+    let mainStoryboardName = "Main"
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,8 +76,9 @@ class NotificationView: UIView {
         }
     }
     
-    func presentAnimation(_ notifView: inout UIView) {
+    func presentAnimation(_ notifView: inout UIView, _ window: inout UIWindow) {
         self.notifView = notifView
+        self.currentWindow = window
         UIView.animate(withDuration: animateDuration, delay: animateDelay, usingSpringWithDamping: animateSpringWithDamping, initialSpringVelocity: animateSpringVelocity, options: .curveEaseIn, animations: { [weak self] () -> Void in
             guard let strongSelf = self else { return }
             strongSelf.notifView.frame = CGRect(x: strongSelf.pushViewXPosition, y: strongSelf.pushViewYPosition, width: strongSelf.pushViewWidth, height: strongSelf.pushViewHeight )
@@ -102,7 +108,14 @@ class NotificationView: UIView {
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        print("Hello World")
+        let storyboard = UIStoryboard(name: mainStoryboardName, bundle: nil)
+        let detailVC = storyboard.instantiateViewController(withIdentifier: detailNotificationViewControllerIdentifier) as! DetailNotificationViewController
+        detailVC.row = rowOfFirstElementInNotificationsArray
+        guard let root = currentWindow.rootViewController as? UITabBarController else { return }
+        root.selectedIndex = secondTabBarIndex
+        guard let navigation = root.childViewControllers.last as? UINavigationController else { return }
+        navigation.pushViewController(detailVC, animated: true)
+
     }
     
     @objc func swipeGesture(_ sender: UISwipeGestureRecognizer) {
