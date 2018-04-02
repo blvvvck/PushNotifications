@@ -14,17 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var remoteNotificationManager = RemoteNotificationManagerImplementation()
+    var localNotificationManager = LocalNotificationManagerImplementation()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         registerForPushNotifications()
-       
-        if let userInfo =  launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
-            
-            remoteNotificationManager.handleNotification(with: userInfo)
-            self.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: { (_)  in  })
-        }
-       
+    
         return true
     }
 
@@ -95,18 +90,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        //открыто
         if (application.applicationState == .active) {
-            remoteNotificationManager.handleNotification(with: userInfo)
-           //говорим локальному
-         //бэкграунд
-        } else if (application.applicationState == .background) {
-            remoteNotificationManager.handleNotification(with: userInfo)
-        }
-        else if (application.applicationState == .inactive) {
+            
+            localNotificationManager.showNotification(&window!, and: userInfo)
+            
+        } else if ( application.applicationState == .inactive) {
             remoteNotificationManager.handleNotification(with: userInfo)
         }
     }
-    
 }
 
