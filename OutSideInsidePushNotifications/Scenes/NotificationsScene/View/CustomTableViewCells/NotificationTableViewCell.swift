@@ -32,7 +32,10 @@ class NotificationTableViewCell: UITableViewCell {
         notificationBodyLabel.text = notificationModel.body
         notificationTitleLabel.text = notificationModel.title
         guard let imageStringAddress = notificationModel.imageUrl else { return }
-        guard let imageUrl = URL(string: imageStringAddress) else { return }
+        guard let imageUrl = URL(string: imageStringAddress) else {
+            notificationImage.image = UIImage(named: "Placeholder")!
+            return
+        }
         notificationImage.sd_setImage(with: imageUrl, completed: nil)
     }
     
