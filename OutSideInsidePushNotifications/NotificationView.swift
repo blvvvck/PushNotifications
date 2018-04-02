@@ -16,8 +16,6 @@ class NotificationView: UIView {
     
     @IBOutlet weak var notificationTitle: UILabel!
     
-    @IBOutlet weak var notificationBody: UITextView!
-
     @IBOutlet weak var notificationBodyLabel: UILabel!
     
     let pushViewXPosition = 10
@@ -36,7 +34,8 @@ class NotificationView: UIView {
     let viewNibName = "NotificationView"
     var notifView = UIView()
     let timeToDismissByUser: DispatchTimeInterval = .seconds(0)
-    
+    let timeToDismiss: DispatchTimeInterval = .seconds(5)
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -62,43 +61,41 @@ class NotificationView: UIView {
         contentView.layer.shadowRadius = notifViewShadowRadius
     }
     
-    func setUpNotification(title: String, body: String, image: UIImage) {
-        notificationTitle.text = title
-        notificationBodyLabel.text = body
-        notificationImage.image = image
-    }
-    
-    @IBAction func notificationTapped(_ sender: Any) {
-        print("Tapped!")
+    func setUpNotification(with model: NotificationModel) {
+        notificationTitle.text = model.title
+        notificationBodyLabel.text = model.body
+        if let imgUrlString = model.imageUrl, let imageUrl = URL(string: imgUrlString) {
+            notificationImage.sd_setImage(with: imageUrl, completed: nil)
+        } else {
+            notificationImage.image = UIImage(named: "Placeholder")!
+        }
     }
     
     func presentAnimation(_ notifView: inout UIView) {
         self.notifView = notifView
-        UIView.animate(withDuration: animateDuration, delay: animateDelay, usingSpringWithDamping: animateSpringWithDamping, initialSpringVelocity: animateSpringVelocity, options: .curveEaseIn, animations: {() -> Void in
-            self.notifView.frame = CGRect(x: self.pushViewXPosition, y: self.pushViewYPosition, width: self.pushViewWidth, height: self.pushViewHeight )
-            self.notifView.backgroundColor = UIColor.white
-            self.notifView.layer.cornerRadius = self.notifViewCornerRadius
-            self.notifView.layer.shadowColor = UIColor.black.cgColor
-            self.notifView.layer.shadowOffset = CGSize(width: 3, height: 3)
-            self.notifView.layer.shadowOpacity = self.notifViewShadowOpacity
-            self.notifView.layer.shadowRadius = self.notifViewShadowRadius
+        UIView.animate(withDuration: animateDuration, delay: animateDelay, usingSpringWithDamping: animateSpringWithDamping, initialSpringVelocity: animateSpringVelocity, options: .curveEaseIn, animations: { [weak self] () -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.notifView.frame = CGRect(x: strongSelf.pushViewXPosition, y: strongSelf.pushViewYPosition, width: strongSelf.pushViewWidth, height: strongSelf.pushViewHeight )
+            strongSelf.notifView.backgroundColor = UIColor.white
+            strongSelf.notifView.layer.cornerRadius = strongSelf.notifViewCornerRadius
+            strongSelf.notifView.layer.shadowColor = UIColor.black.cgColor
+            strongSelf.notifView.layer.shadowOffset = CGSize(width: 3, height: 3)
+            strongSelf.notifView.layer.shadowOpacity = strongSelf.notifViewShadowOpacity
+            strongSelf.notifView.layer.shadowRadius = strongSelf.notifViewShadowRadius
             
-            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-            self.notifView.addGestureRecognizer(tap)
-            self.notifView.isUserInteractionEnabled = true
+            strongSelf.dismissAnimation(strongSelf.notifView, and: strongSelf.timeToDismiss)
             
-            let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeGesture(_:)))
-            swipe.direction = .up
-            self.notifView.addGestureRecognizer(swipe)
-            self.notifView.isUserInteractionEnabled = true
+            strongSelf.registerTap()
+            strongSelf.registerSwipe()
             
         }, completion: {(_ finished: Bool) -> Void in
         })
     }
     
     func dismissAnimation(_ notifView: UIView, and timeToDismiss: DispatchTimeInterval) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeToDismiss) {             UIView.animate(withDuration: self.animateDuration, delay: self.animateDelay, usingSpringWithDamping: self.animateSpringWithDamping, initialSpringVelocity: self.animateSpringVelocity, options: .curveEaseIn, animations: {() -> Void in
-            notifView.frame = CGRect(x: self.pushViewXPosition, y: self.pushViewYPositionAfterDismiss, width: self.pushViewWidth, height: self.pushViewHeightAfterDismiss)
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeToDismiss) { UIView.animate(withDuration: self.animateDuration, delay: self.animateDelay, usingSpringWithDamping: self.animateSpringWithDamping, initialSpringVelocity: self.animateSpringVelocity, options: .curveEaseIn, animations: { [weak self] () -> Void in
+            guard let strongSelf = self else { return }
+            notifView.frame = CGRect(x: strongSelf.pushViewXPosition, y: strongSelf.pushViewYPositionAfterDismiss, width: strongSelf.pushViewWidth, height: strongSelf.pushViewHeightAfterDismiss)
         }, completion: {(_ finished: Bool) -> Void in
         })
         }
@@ -110,6 +107,19 @@ class NotificationView: UIView {
     
     @objc func swipeGesture(_ sender: UISwipeGestureRecognizer) {
         dismissAnimation(notifView, and: timeToDismissByUser)
+    }
+    
+    func registerTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        self.notifView.addGestureRecognizer(tap)
+        self.notifView.isUserInteractionEnabled = true
+    }
+    
+    func registerSwipe() {
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeGesture(_:)))
+        swipe.direction = .up
+        self.notifView.addGestureRecognizer(swipe)
+        self.notifView.isUserInteractionEnabled = true
     }
     
 }

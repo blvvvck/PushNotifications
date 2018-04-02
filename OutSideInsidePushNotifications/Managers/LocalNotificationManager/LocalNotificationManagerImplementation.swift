@@ -43,21 +43,9 @@ class LocalNotificationManagerImplementation: LocalNotificationManager {
         
         guard let currentNotification = dbManager.getLastNotification() else { return }
         
-        if let imgUrlString = currentNotification.imageUrl, let imageUrl = URL(string: imgUrlString) {
-            myView.notificationImage.sd_setImage(with: imageUrl, completed: nil)
-            myView.notificationBodyLabel.text = currentNotification.body
-            myView.notificationTitle.text = currentNotification.title
-            notifView.addSubview(myView)
-            currentWindow.addSubview(notifView)
-            myView.presentAnimation(&notifView)
-            myView.dismissAnimation(notifView, and: timeToDismiss)
-            
-        } else {
-            myView.setUpNotification(title: "\(currentNotification.title)", body: "\(currentNotification.body)", image: UIImage(named: "Placeholder")!)
-            notifView.addSubview(myView)
-            currentWindow.addSubview(notifView)
-            myView.presentAnimation(&notifView)
-            myView.dismissAnimation(notifView, and: timeToDismiss)
-        }
+        myView.setUpNotification(with: currentNotification)
+        notifView.addSubview(myView)
+        currentWindow.addSubview(notifView)
+        myView.presentAnimation(&notifView)
     }
 }

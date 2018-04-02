@@ -83,16 +83,8 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="tWh-21-CPs"/>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="epv-ia-cPf" appends="YES" id="qa5-1T-LP8"/>
-            </connections>
             <point key="canvasLocation" x="35" y="-155"/>
         </view>
-        <tapGestureRecognizer id="epv-ia-cPf">
-            <connections>
-                <action selector="notificationTapped:" destination="-1" id="egf-wN-7fc"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="DefaultIcon" width="400" height="400"/>
