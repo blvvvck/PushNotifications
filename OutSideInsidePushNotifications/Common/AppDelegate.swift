@@ -11,7 +11,7 @@ import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     var remoteNotificationManager = RemoteNotificationManagerImplementation()
     var localNotificationManager = LocalNotificationManagerImplementation()
@@ -96,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else if ( application.applicationState == .inactive) {
             remoteNotificationManager.handleNotification(with: userInfo)
+            remoteNotificationManager.openDetailNotificationAfterTap(with: &window!)
         }
     }
 }

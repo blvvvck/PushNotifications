@@ -12,6 +12,10 @@ import UserNotifications
 class RemoteNotificationManagerImplementation: RemoteNotificationManager {
     
     let dbManager = DBManagerImplemetation()
+    let rowOfFirstElementInNotificationsArray = 0
+    let secondTabBarIndex = 1
+    let detailNotificationViewControllerIdentifier = "DetailNotificationViewController"
+    let mainStoryboardName = "Main"
     
     func handleNotification(with userInfo: [AnyHashable : Any]) {
         
@@ -36,5 +40,15 @@ class RemoteNotificationManagerImplementation: RemoteNotificationManager {
         } catch let errorMessage {
             print("\(errorMessage.localizedDescription)")
         }
+    }
+    
+    func openDetailNotificationAfterTap(with window: inout UIWindow) {
+        let storyboard = UIStoryboard(name: mainStoryboardName, bundle: nil)
+        let detailVC = storyboard.instantiateViewController(withIdentifier: detailNotificationViewControllerIdentifier) as! DetailNotificationViewController
+        detailVC.row = rowOfFirstElementInNotificationsArray
+        guard let root = window.rootViewController as? UITabBarController else { return }
+        root.selectedIndex = secondTabBarIndex
+        guard let navigation = root.childViewControllers.last as? UINavigationController else { return }
+        navigation.pushViewController(detailVC, animated: true)
     }
 }

@@ -16,4 +16,8 @@ protocol RemoteNotificationManager {
     /// - Parameter userInfo: notification's json
     func handleNotification(with userInfo: [AnyHashable : Any])
     
+    /// Open detail notification screen
+    ///
+    /// - Parameter window: current scrren in app
+    func openDetailNotificationAfterTap(with window: inout UIWindow)
 }
