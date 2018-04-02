@@ -15,4 +15,5 @@ protocol NotificationsPresenter {
     
     /// Function to set up view when it did appear
     func viewDidAppear()
+    
 }
