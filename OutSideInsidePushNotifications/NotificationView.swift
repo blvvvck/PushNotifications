@@ -115,7 +115,7 @@ class NotificationView: UIView {
         root.selectedIndex = secondTabBarIndex
         guard let navigation = root.childViewControllers.last as? UINavigationController else { return }
         navigation.pushViewController(detailVC, animated: true)
-
+        dismissAnimation(self.notifView, and: timeToDismissByUser)
     }
     
     @objc func swipeGesture(_ sender: UISwipeGestureRecognizer) {
